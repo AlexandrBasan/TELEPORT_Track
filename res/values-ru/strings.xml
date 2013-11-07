@@ -1,0 +1,43 @@
+<resources>
+
+    <string name="app_name">Teleport. Track.</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- Menu -->
+    <string name="menu_about">О нас</string>
+    <string name="menu_logout">Выход</string>
+    <string name="menu_update_page">Перезагрузить страницу</string>
+    <string name="menu_exit">Выход</string>
+
+    <!-- Label -->
+    <string name="loading">Загрузка&#8230;</string>
+    <string name="title_activity_main">Teleport. Track your delivery.</string>
+    <string name="Button_ok">Сохранить</string>
+    <string name="Button_cancel">Закрыть</string>
+    
+    <string name="text_track_your_delivery_1">С помощью этого приложения Вы можете отслеживать текущий статус доставки Вашего заказа из интернет магазина. </string>
+    <string name="text_track_your_delivery_attention">Внимание! Отслеживание заявки возможно только если доставка проходит через сервис Teleport Delivery Service.</string>
+    <string name="text_track_your_delivery_past_ID">Введите ID код доставки, который выдан Вам магазином после завершения покупки и нажмите кнопку отследить.</string>
+    <string name="text_track_ID">ID заявки:</string>
+    <string name="text_track_button">Отследить</string>
+    <string name="text_teleportds">www.teleport-ds.com</string>
+
+    <!-- Address format -->
+    <string name="address_output_string">%1$s %2$s %3$s</string>
+
+    <!-- Latitude, longitude format -->
+    <string name="latitude_longitude">%1$.8f, %2$.8f</string>
+
+    <!-- Error or Warning Label -->
+ <string name="connection_error">Невозможно загрузить данные. Проверьте соединение с Интернетом.</string>
+ 
+      <!-- Track Activity -->
+    <string name="title_activity_track">Отслеживание заявки</string>
+    <string name="DeliveryStatus">Статус доставки:</string>
+    <string name="Status">...статус...</string>
+    <string name="Time">Время:</string>
+    <string name="please_wait">Пожалуйста подождите. Получаем информацию о вашем заказе.</string>
+    <string name="yourorderid">Номер Вашей заявки:</string>
+    <string name="orderid">...ID заявки...</string>
+    <string name="enterid">please enter something</string>
+</resources>
