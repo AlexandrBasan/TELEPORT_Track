@@ -19,17 +19,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.content.Intent;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-import android.app.Activity;
+
 
 class PostData extends AsyncTask<String, String, String>{
 	
 	TrackActivity ta;
 	MainActivity ma;
 	Context mContext;
+	public String rfs;
     public PostData (Context context) {
         mContext = context;
     }
@@ -48,6 +45,10 @@ class PostData extends AsyncTask<String, String, String>{
 		protected void onPostExecute(String result){
 			super.onPostExecute(result);
 			Log.d("postexecuteresult", result + "");
+			 Intent i = new Intent(mContext, TrackActivity.class);
+			 i.putExtra(TrackActivity.JsonURL, rfs.toString());
+			 Log.d("rfs", rfs + "");
+//		     mContext.startActivity(i); // call using Context instance
 			
 			
 	//		ta.pb.setVisibility(View.GONE);
@@ -65,9 +66,10 @@ class PostData extends AsyncTask<String, String, String>{
 			HttpClient httpclient = new DefaultHttpClient();
 			ResponseHandler<String> res = new BasicResponseHandler();
 		//	HttpPost httppost = new HttpPost("http://saas.teleport-ds.com/trackorder/id=" + valueIWantToSend);
-			HttpPost httppost = new HttpPost("http://saas.teleport-ds.com/trackorder.php");
+		//	HttpPost httppost = new HttpPost("http://teleport-manager.pp.ua/documents/" + valueIWantToSend + ".json");
+			HttpPost httppost = new HttpPost("http://teleport-manager.pp.ua/entity_json/documents/" + valueIWantToSend);
 		//	Log.d("+URL", "http://saas.teleport-ds.com/trackorder" + valueIWantToSend + "");
-			Log.d("+URL", "http://saas.teleport-ds.com/trackorder.php");
+			Log.d("+URL", "http://teleport-manager.pp.ua/ru/documents/" + valueIWantToSend + ".json");
  
 			try {
 				// Add your data
@@ -78,15 +80,13 @@ class PostData extends AsyncTask<String, String, String>{
 				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
  
 				// Execute HTTP Post Request
-				HttpResponse response = httpclient.execute(httppost);
-				Log.d("HTTP Response", response + "");
+//				HttpResponse response = httpclient.execute(httppost);
+//				Log.d("HTTP Response", response + "");
 				//получаем ответ от сервера
 				String responsefromserver = httpclient.execute(httppost, res);
 				Log.d("HTTP responsefromserver", responsefromserver + "");
 				
-				 Intent i = new Intent(mContext, TrackActivity.class);
-				 i.putExtra(TrackActivity.JsonURL, responsefromserver.toString());
-			     mContext.startActivity(i); // call using Context instance
+				rfs = responsefromserver;
  //
 			} catch (ClientProtocolException e) {
 				// TODO Auto-generated catch block

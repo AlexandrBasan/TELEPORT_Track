@@ -4,6 +4,8 @@
     <string name="app_name">Teleport. Track.</string>
     <string name="hello_world">Hello world!</string>
 
+    <string name="mapskey">YOUR API KEY</string>
+    
     <!-- Menu -->
     <string name="menu_about">About us</string>
     <string name="menu_logout">Logout</string>
@@ -12,7 +14,7 @@
 
     <!-- Label -->
     <string name="loading">Loading&#8230;</string>
-    <string name="title_activity_main">Teleport. Track your delivery.</string>
+    <string name="title_activity_main">Teleport Track</string>
     <string name="Button_ok">Save</string>
     <string name="Button_cancel">Cancel</string>
     <string name="text_track_your_delivery_1">With this application you can track the current status of your order delivery from online store. </string>
@@ -37,13 +39,47 @@
          <!-- Track Activity -->
     <string name="title_activity_track">Track your order</string>
     <string name="DeliveryStatus">Delivery Status:</string>
-    <string name="Status">...status...</string>
+    <string name="AutoStatus">System Status:</string>
+    <string name="Status">loading...</string>
     <string name="Time">Time:</string>
     <string name="please_wait">Please wait. Receiving information about your order</string>
     <string name="yourorderid">Your order ID:</string>
     <string name="orderid">...order ID...</string>
     <string name="enterid">please enter inquiry ID</string>
+    <string name="Youcourierpos">You courier on the map:</string>
     
+     <!-- Create Activity -->
+    <string name="title_activity_create">Create your inquiry</string>
+    <string name="с_sender">Ф.И.О. отправителя*</string>
+    <string name="с_sender_adress">Адрес отправителя*</string>
+    <string name="с_sender_phone">Телефон отправителя*</string>
+    <string name="с_weight">Вес посылки</string>
+    <string name="с_razmer">Габарит посылки</string>
+    <string name="с_receiver_adress">Адрес получателя*</string>
+    <string name="с_receiver">Ф.И.О. получателя*</string>
+    <string name="с_receiver_phone">Телефон получателя*</string>
+    <string name="с_receiver_email">E-mail получателя</string>
+    <string name="с_declarate_walue">Задекларированная стоимость груза</string>
+    <string name="с_info">Дополнительная информация</string>
+    <string name="dont_work">Sorry, but this possibility not work on this moment.</string>
+    <string name="enterfields">Please enter required field</string>
+    <string name="inquiryok">Ok</string>
+    <string name="inquirycancel">Cancel</string>
+    <string name="cinquiryid">Inquiry ID</string>
+    <string name="cinquirycost">Delivery cost</string>
+    <string name="Statuscinquiry">.....</string>
+    
+    <string-array name="gabarit">
+    <item>Маленький L30 * W25 * H10 (Вес до 3 кг)</item>
+    <item>Маленький L35 * W25 * H25 (Вес до 6 кг)</item>
+    <item>Средний L100 * W100 * H7  (Вес до 30 кг)</item>
+    <item>Большой L133 * W133 * H133  (Вес до 30 кг)</item>
+	</string-array>
+    
+    <!-- Start Activity -->
+    <string name="title_activity_start">Teleport. Create and Track</string>
+    <string name="text_create_button">Create inquiry</string>
+    <string name="text_start_info">This app created for create inquiry and Track inquiry for Teleport Delivery Service</string>
     
 
 </resources>

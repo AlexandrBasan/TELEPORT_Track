@@ -11,7 +11,7 @@
 
     <!-- Label -->
     <string name="loading">Загрузка&#8230;</string>
-    <string name="title_activity_main">Teleport. Track your delivery.</string>
+    <string name="title_activity_main">Teleport Track</string>
     <string name="Button_ok">Сохранить</string>
     <string name="Button_cancel">Закрыть</string>
     
@@ -34,10 +34,45 @@
       <!-- Track Activity -->
     <string name="title_activity_track">Отслеживание заявки</string>
     <string name="DeliveryStatus">Статус доставки:</string>
-    <string name="Status">...статус...</string>
+    <string name="AutoStatus">Системный статус:</string>
+    <string name="Status">загрузка...</string>
     <string name="Time">Время:</string>
     <string name="please_wait">Пожалуйста подождите. Получаем информацию о вашем заказе.</string>
     <string name="yourorderid">Номер Вашей заявки:</string>
     <string name="orderid">...ID заявки...</string>
-    <string name="enterid">please enter something</string>
+    <string name="enterid">Пожалуйста введите ID заявки</string>
+    <string name="Youcourierpos">Ваш курьер сейчас здесь:</string>
+    
+      <!-- Create Activity -->
+    <string name="title_activity_create">Создать заявку на доставку</string>
+    <string name="с_sender">Ф.И.О. отправителя*</string>
+    <string name="с_sender_adress">Адрес отправителя*</string>
+    <string name="с_sender_phone">Телефон отправителя*</string>
+    <string name="с_weight">Вес посылки</string>
+    <string name="с_razmer">Габарит посылки</string>
+    <string name="с_receiver_adress">Адрес получателя*</string>
+    <string name="с_receiver">Ф.И.О. получателя*</string>
+    <string name="с_receiver_phone">Телефон получателя*</string>
+    <string name="с_receiver_email">E-mail получателя</string>
+    <string name="с_declarate_walue">Задекларированная стоимость груза</string>
+    <string name="с_info">Дополнительная информация</string>
+    <string name="dont_work">На данный момент эта функция не работает. Приносим свои извенения за причененные неудобства.</string>
+    <string name="enterfields">Пожалуйста заполните обязательные поля</string>
+    <string name="inquiryok">Подтвердить</string>
+    <string name="inquirycancel">Отменить</string>
+    <string name="cinquiryid">ID заявки</string>
+    <string name="cinquirycost">Стоимость доставки</string>
+    
+     <string-array name="gabarit">
+    <item>Маленький L30 * W25 * H10 (Вес до 3 кг)</item>
+    <item>Маленький L35 * W25 * H25 (Вес до 6 кг)</item>
+    <item>Средний L100 * W100 * H7  (Вес до 30 кг)</item>
+    <item>Большой L133 * W133 * H133  (Вес до 30 кг)</item>
+	</string-array>
+	
+    
+    <!-- Start Activity -->
+    <string name="title_activity_start">Teleport. Create and Track</string>
+    <string name="text_create_button">Создать заявку на доставку</string>
+    <string name="text_start_info">С помощью этого приложения Вы можете создать заявку на доставку или отследить статус доставки товара</string>
 </resources>

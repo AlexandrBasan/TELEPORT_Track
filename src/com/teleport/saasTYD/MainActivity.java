@@ -1,87 +1,54 @@
 package com.teleport.saasTYD;
 
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.webkit.CookieManager;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 public class MainActivity extends Activity {
-	
-	//переменная главного Вэб Вью
-	private WebView mWebView;
-	// обявляем прогрессбар
-	private ProgressBar pb;
-	
-	MainActivity ma;
-	TrackActivity ta;
+
+	private InputStream is;
+    TrackActivity url;
 	public String trackid;
 	public String output;
 
-	
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
+    //    this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.activity_main);
-        
-             
-        mWebView = (WebView) findViewById(R.id.webview);  	  
-        mWebView.setWebViewClient(new WebViewClient());      
-        
-        // включаем поддержку JavaScript
-        mWebView.getSettings().setJavaScriptEnabled(true);
-        // Сохраняем пароль
-        mWebView.getSettings().setSavePassword(true);
-        // Сохраняем данные форм для ввода пароля
-        mWebView.getSettings().setSaveFormData(true);
-        // устанавливаем Zoom control
-        mWebView.getSettings().setSupportZoom(true);
-        mWebView.getSettings().setBuiltInZoomControls(true);
-     // разрешаем cookie
-        CookieManager cookieManager = CookieManager.getInstance();
-        cookieManager.setAcceptCookie(true);
-    	// указываем страницу загрузки
-        mWebView.loadUrl("http://saas.teleport-ds.com/"); 
-        
-     // обработка прогресс бара загрузки страницы
-        final Activity activity = this;
-        getWindow().setFeatureInt( Window.FEATURE_PROGRESS, Window.PROGRESS_VISIBILITY_ON);
-        mWebView.setWebChromeClient(new WebChromeClient()
-        {
-            public void onProgressChanged(WebView view, int progress)
-            {
-              activity.setTitle(R.string.loading);
-              activity.setProgress(progress * 100);
 
-              if(progress == 100)
-            	  activity.setTitle(R.string.app_name);
+        {          
+            {
+         
             }
-          });
-        // обработка ошибок
-        mWebView.setWebViewClient(new WebViewClient() {
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-             Toast.makeText(getApplicationContext(), "Error: " + description+ " " + failingUrl, Toast.LENGTH_LONG).show();
-            }
-        });        
-                
+          };
+       
     }
 
     public void onClickTeleportwww(View v){
@@ -103,58 +70,22 @@ public class MainActivity extends Activity {
  			startActivity(browserIntent);
  			break;
  		}
- 		case R.id.menu_update_page: {
- 			mWebView.reload();
- 			break;
- 		}
+ 	
 
- 		case R.id.menu_exit: {
- 			onDestroy();  
- 			break;
- 		}		
+// 		case R.id.menu_exit: {
+// 			onDestroy();  
+// 			break;
+// 		}		
  		}
  		return super.onMenuItemSelected(featureId, item);
  	}   
     
-    
-	public void onPageStarted (WebView view, String url, Bitmap favicon) {
-        // Отключаем загрузку картинок в начале открытия страницы
-        mWebView.getSettings().setLoadsImagesAutomatically(false);
-      }
-      
-      public void onPageFinished (WebView view, String url) {
-    	// Включаем загрузку картинок в конце открытия страницы
-    	  mWebView.getSettings().setLoadsImagesAutomatically(true);
-      }   
-    
-    //обработка события нажатия кнопки назад 31.05 Если первый экран выбивало ошибку
-  	@Override
-  	public boolean onKeyDown(int keyCode, KeyEvent event) {
-  		if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
-  			mWebView.goBack();
-  			return true;
-  		}
-  		return super.onKeyDown(keyCode, event);
-  	}
-      
-      
-      @Override
-      public void onDestroy() {
-         super.onDestroy();
+//      @Override
+//      public void onDestroy() {
+//         super.onDestroy();
 //         System.exit(0);
-      }
+//      }
   
-      // Displays an error if the app is unable to load content.
-      private void showErrorPage() {
-          setContentView(R.layout.activity_main);
-
-          // The specified network connection is not available. Displays error message.
-          WebView myWebView = (WebView) findViewById(R.id.webview);
-          myWebView.loadData(getResources().getString(R.string.connection_error),
-                  "text/html", null);
-      }
-
-
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
@@ -171,26 +102,90 @@ public class MainActivity extends Activity {
 		}else{
 			
 		Toast.makeText(getApplicationContext(), R.string.please_wait, Toast.LENGTH_LONG).show();
-//		new PostData().execute(edtrackID.getText().toString());
-//		 new PostData(getBaseContext()).execute();
-		// вызываем функцию возвращающую значение номера заявки
-		getTrackID();
 		// вызываем асинктаск передачи данных
-		new PostData(getBaseContext()).execute(edtrackID.getText().toString());
+	
+    String ID = edtrackID.getText().toString();  
+    Log.d("ID", ID);
+    
+    // сохраняем значение ID в SharedPreferences
+    savePreferences("ID", edtrackID.getText().toString());
+    Log.d("savePreferences", edtrackID.getText().toString());
+    
+		//тут указываем куда будем конектится, для примера я привел удаленных хост если у вас не получилось освоить wamp (:
+        new RequestTask().execute("http://saas.teleport-ds.com/api/getm/json/documents/" + edtrackID.getText().toString(), ID);
+        Log.d("+URL", "http://saas.teleport-ds.com/api/getm/json/documents/" + edtrackID.getText().toString() + ID);
 		// запускаем нашу активити которая отображает данные
-				Intent launchNewIntent = new Intent(MainActivity.this,TrackActivity.class);
-				launchNewIntent.putExtra("edtrackID", edtrackID.getText().toString());
-				
-				startActivityForResult(launchNewIntent, 0);
-				
-				
-                
-              
-              
-//		new PostData(ta, ma, getBaseContext()).execute();
+//				Intent launchNewIntent = new Intent(MainActivity.this,TrackActivity.class);
+        
+//				launchNewIntent.putExtra("edtrackID", edtrackID.getText().toString());
+//				startActivityForResult(launchNewIntent, 0);
+
 		}
 			
 	}
+	 // сохраняем значение ID в SharedPreferences
+	private void savePreferences(String key, String value) {
+	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+	Editor editor = sharedPreferences.edit();
+	editor.putString(key, value);
+	editor.commit();}
+
+	
+	class RequestTask extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+
+                try {
+                        //создаем запрос на сервер
+                        DefaultHttpClient hc = new DefaultHttpClient();
+                        ResponseHandler<String> res = new BasicResponseHandler();
+                        //он у нас будет посылать post запрос
+                        HttpPost postMethod = new HttpPost(params[0]);
+                        //будем передавать два параметра
+                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+                        //передаем параметры из наших текстбоксов
+                        //лоигн
+                        nameValuePairs.add(new BasicNameValuePair("ID", params[1]));
+                        Log.d("params[1]", params[1] + "");
+                        //собераем их вместе и посылаем на сервер
+                        postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                        //получаем ответ от сервера
+                        String response = hc.execute(postMethod, res);
+                        Log.d("HTTP response", response + "");
+                        //посылаем на вторую активность полученные параметры
+                        Intent intent = new Intent(MainActivity.this, TrackActivity.class);
+                        //то что куда мы будем передавать и что, putExtra(куда, что);
+                        intent.putExtra(TrackActivity.JsonURL, response.toString());
+                        // не может сконвертировать данные в обект жсон
+                     // intent.putExtra(TrackActivity.SETID, params[1].toString());
+                        
+                                               
+                        
+                        startActivity(intent);
+                } catch (Exception e) {
+                        System.out.println("Exp=" + e);
+                }
+                return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+  //      	url.pb.setVisibility(View.GONE);
+                
+                super.onPostExecute(result);
+        }
+        
+        protected void onProgressUpdate(Integer... progress){
+			url.pb.setProgress(progress[0]);
+		}
+
+        @Override
+        protected void onPreExecute() {
+ //       	url.pb.setVisibility(View.VISIBLE);
+                super.onPreExecute();
+        }
+}
 	
 	public String getTrackID(){
 		EditText fedtrackID = (EditText) findViewById(R.id.editText1);
