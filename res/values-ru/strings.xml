@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">Teleport. Track.</string>
+    <string name="app_name">Teleport Track</string>
     <string name="hello_world">Hello world!</string>
 
     <!-- Menu -->
@@ -54,6 +54,7 @@
     <string name="с_receiver">Ф.И.О. получателя*</string>
     <string name="с_receiver_phone">Телефон получателя*</string>
     <string name="с_receiver_email">E-mail получателя</string>
+    <string name="с_sender_email">E-mail отправителя*</string>
     <string name="с_declarate_walue">Задекларированная стоимость груза</string>
     <string name="с_info">Дополнительная информация</string>
     <string name="dont_work">На данный момент эта функция не работает. Приносим свои извенения за причененные неудобства.</string>

@@ -157,7 +157,7 @@ public class MainActivity extends Activity {
                         Intent intent = new Intent(MainActivity.this, TrackActivity.class);
                         //то что куда мы будем передавать и что, putExtra(куда, что);
                         intent.putExtra(TrackActivity.JsonURL, response.toString());
-                        // не может сконвертировать данные в обект жсон
+                       // не может сконвертировать данные в обект жсон
                      // intent.putExtra(TrackActivity.SETID, params[1].toString());
                         
                                                

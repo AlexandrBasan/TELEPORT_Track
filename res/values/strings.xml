@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Teleport. Track.</string>
+    <string name="app_name">Teleport Track</string>
     <string name="hello_world">Hello world!</string>
 
     <string name="mapskey">YOUR API KEY</string>
@@ -59,6 +59,7 @@
     <string name="с_receiver">Ф.И.О. получателя*</string>
     <string name="с_receiver_phone">Телефон получателя*</string>
     <string name="с_receiver_email">E-mail получателя</string>
+    <string name="с_sender_email">E-mail отправителя*</string>
     <string name="с_declarate_walue">Задекларированная стоимость груза</string>
     <string name="с_info">Дополнительная информация</string>
     <string name="dont_work">Sorry, but this possibility not work on this moment.</string>

@@ -73,6 +73,21 @@
         android:inputType="phone" />
 
     <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/с_sender_email"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
