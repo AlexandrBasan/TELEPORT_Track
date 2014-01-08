@@ -47,9 +47,23 @@ public class CreateActivity extends Activity {
     private static final String deliverycost = "error receiving data";
     private static final String inquiryid = "error receiving data";
     // данные для авторизации
-    String KEY = "API KEY";
-    String login = "login";
-    String password = "password";
+    String oauth_consumer_key = "TTGY9XM8bSFtydVjGMyYWhVWamEPbHHU";
+    String XCSRFTokenm = "XCSRFToken";
+    String login = "alexandr.basan@gmail.com";
+    String password = "Infinity8";
+    // значения полей
+    String с_sender = "";
+    String с_sender_adress = "";
+    String с_sender_email = "";
+    String с_sender_phone = "";
+    String с_receiver = "";
+    String с_receiver_adress = "";
+    String с_receiver_phone = "";
+    String с_weight = "";
+    String с_gabarit = "";
+    String с_receiver_email = "";
+    String с_declarate_walue = "";
+    String с_info = "";
     // стринги для разбора значений
     private static ArrayList<HashMap<String, Object>> CreateInq;
 
@@ -118,31 +132,31 @@ csp.setText(simnumber);
 	{
 		
 		EditText cs = (EditText) findViewById(R.id.editText1);
-		String с_sender = cs.getText().toString();  
+		с_sender = cs.getText().toString();  
 	    Log.d("с_sender", с_sender);
 		
 		EditText csa = (EditText) findViewById(R.id.editText2);
-		String с_sender_adress = csa.getText().toString();
+		с_sender_adress = csa.getText().toString();
 		Log.d("с_sender_adress", с_sender_adress);
 		
 		EditText cse = (EditText) findViewById(R.id.editText5);
-		String с_sender_email = cse.getText().toString();
+		с_sender_email = cse.getText().toString();
 		Log.d("с_sender_email", с_sender_email);
 		
 		EditText csp = (EditText) findViewById(R.id.editText3);
-		String с_sender_phone = csp.getText().toString();
+		с_sender_phone = csp.getText().toString();
 		Log.d("с_sender_phone", с_sender_phone);
 		
 		EditText cra = (EditText) findViewById(R.id.editText7);
-		String с_receiver_adress = cra.getText().toString();
+		с_receiver_adress = cra.getText().toString();
 		Log.d("с_receiver_adress", с_receiver_adress);
 		
 		EditText cre = (EditText) findViewById(R.id.editText6);
-		String с_receiver = cre.getText().toString();
+		с_receiver = cre.getText().toString();
 		Log.d("с_receiver", с_receiver);
 		
 		EditText crp = (EditText) findViewById(R.id.editText8);
-		String с_receiver_phone = crp.getText().toString();
+		с_receiver_phone = crp.getText().toString();
 	    Log.d("с_receiver_phone", с_receiver_phone);
 		
 		if(с_sender.matches("") || с_sender_adress.matches("") || с_sender_phone.matches("") || с_receiver_adress.matches("") || с_receiver.matches("") || с_receiver_phone.matches("") || с_sender_email.matches("")){
@@ -155,36 +169,180 @@ csp.setText(simnumber);
 		
 	//    Intent intent = new Intent(CreateActivity.this, MainActivity.class);
 	//    startActivity(intent);
-	    Toast.makeText(getApplicationContext(), R.string.dont_work, Toast.LENGTH_LONG).show();
+	//    Toast.makeText(getApplicationContext(), R.string.dont_work, Toast.LENGTH_LONG).show();
 	    
 	    EditText cw = (EditText) findViewById(R.id.editText4);
-	    String с_weight = cw.getText().toString();
+	    с_weight = cw.getText().toString();
 	    Log.d("с_weight", с_weight);
 	    Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
-	    String gabaritChoose = mySpinner.getSelectedItem().toString();  
-	    Log.d("с_gabarit", gabaritChoose);
+	    с_gabarit = mySpinner.getSelectedItem().toString();  
+	    Log.d("с_gabarit", с_gabarit);
 	    EditText crem = (EditText) findViewById(R.id.editText9);
-	    String с_receiver_email = crem.getText().toString();
+	    с_receiver_email = crem.getText().toString();
 	    Log.d("с_receiver_email", с_receiver_email);
 	    EditText cdv = (EditText) findViewById(R.id.editText10);
-	    String с_declarate_walue = cdv.getText().toString();
+	    с_declarate_walue = cdv.getText().toString();
 	    Log.d("с_declarate_walue", с_declarate_walue);
 	    EditText ci = (EditText) findViewById(R.id.editText11);
-	    String с_info = ci.getText().toString();
+	    с_info = ci.getText().toString();
 	    Log.d("с_info", с_info);
 	    
-	   
-	  //тут указываем куда будем конектится, для примера я привел удаленных хост если у вас не получилось освоить wamp (:
-      new RequestTaskC().execute("http://saas.teleport-ds.com/api/getm/json/documents/" + KEY, KEY);
-      Log.d("+URLCreateinq", "http://saas.teleport-ds.com/api/getm/json/documents/" + KEY);
-	    
+
+new RequestTaskXCSRFToken().execute("http://saas.teleport-ds.com/document/1.0/user/token.json?oauth_consumer_key=" + oauth_consumer_key, oauth_consumer_key);
+Log.d("+URLtoken", "http://saas.teleport-ds.com/document/1.0/user/token.json?oauth_consumer_key=" + oauth_consumer_key);
 
 		}
 		
 	}
+/////////////////////////////////////////////////// 1 step //////////////////////////////////////////////////////////
+	// обработка отправки данных
+		class RequestTaskXCSRFToken extends AsyncTask<String, String, String> {
 
-	
-	
+	        @Override
+	        protected String doInBackground(String... params) {
+
+	                try {
+	                        //создаем запрос на сервер
+	                        DefaultHttpClient hc = new DefaultHttpClient();
+	                        ResponseHandler<String> res = new BasicResponseHandler();
+	                        //он у нас будет посылать post запрос
+	                        HttpPost postMethod = new HttpPost(params[0]);
+	                        //будем передавать 14 параметров
+	                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
+	                        //передаем параметры из наших текстбоксов в систему
+	                        nameValuePairs.add(new BasicNameValuePair("oauth_consumer_key", params[1]));
+	                        Log.d("oauth_consumer_key", params[1] + "");
+	                      //собераем их вместе и посылаем на сервер
+	                        postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+	                        //получаем ответ от сервера
+	                        String responsetoken = hc.execute(postMethod, res);
+	                        Log.d("responsetoken", responsetoken + "");
+	                        
+	                        // обработываем значения которые вернулись
+	                    	CreateInq = new ArrayList<HashMap<String, Object>>();
+	                    	//передаем в метод парсинга
+	                    	JSONURLtoken(responsetoken);
+
+	                        
+	                } catch (Exception e) {
+	                        System.out.println("Exp=" + e);
+	                        
+	                }
+	                return null;
+	        }
+
+	        @Override
+	        protected void onPostExecute(String result) {
+	        	// вызываем step 2
+	        	new RequestTaskLogin().execute("http://saas.teleport-ds.com/document/1.0/user/login.json?oauth_consumer_key=" + oauth_consumer_key, oauth_consumer_key, XCSRFTokenm, login, password);
+	        	Log.d("+URLLogin", "http://saas.teleport-ds.com/document/1.0/user/login.json?oauth_consumer_key=" + oauth_consumer_key);
+	                super.onPostExecute(result);
+	        }
+	        
+	        protected void onProgressUpdate(Integer... progress){  }
+				
+
+	        @Override
+	        protected void onPreExecute() {
+	                super.onPreExecute();
+	        }
+	}
+		 /** 1 step @param result */
+		public void JSONURLtoken(String result) {
+
+	        try {
+	                //создали читателя json объектов и отдали ему строку - result
+	                JSONObject json = new JSONObject(result);
+
+	                	XCSRFTokenm = (String) json.get("token");
+	                	Log.d("XCSRFTokenm", (String) json.get("token") + "");
+	                	
+	              
+	        } catch (JSONException e) {
+	                Log.e("log_tag", "Error parsing data " + e.toString());
+	        }
+	}
+/////////////////////////////////////////////////// 1 step //////////////////////////////////////////////////////////	
+/////////////////////////////////////////////////// 2 step //////////////////////////////////////////////////////////
+		// обработка отправки данных
+				class RequestTaskLogin extends AsyncTask<String, String, String> {
+
+			        @Override
+			        protected String doInBackground(String... params) {
+
+			                try {
+			                        //создаем запрос на сервер
+			                        DefaultHttpClient hc = new DefaultHttpClient();
+			                        ResponseHandler<String> res = new BasicResponseHandler();
+			                        //он у нас будет посылать post запрос
+			                        HttpPost postMethod = new HttpPost(params[0]);
+			                        postMethod.setHeader("X-CSRF-Token:"+ XCSRFTokenm,"application/json" );
+			                        Log.d("setHeader X-CSRF-Token ni", "X-CSRF-Token:"+ XCSRFTokenm + "");
+			                        //будем передавать 14 параметров
+			                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
+			                        //передаем параметры из наших текстбоксов в систему
+			                        nameValuePairs.add(new BasicNameValuePair("oauth_consumer_key", params[1]));
+			                        Log.d("oauth_consumer_key", params[1] + "");
+			                        nameValuePairs.add(new BasicNameValuePair("X-CSRF-Token", params[2]));
+			                        Log.d("X-CSRF-Token login", params[2] + "");
+			                        nameValuePairs.add(new BasicNameValuePair("username", params[3]));
+			                        Log.d("username login", params[3] + "");
+			                        nameValuePairs.add(new BasicNameValuePair("password", params[4]));
+			                        Log.d("password login", params[4] + "");
+			                      //собераем их вместе и посылаем на сервер
+			                        postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			                        //получаем ответ от сервера
+			                        String responselogin = hc.execute(postMethod, res);
+			                        Log.d("responselogin", responselogin + "");
+			                        
+			                        // обработываем значения которые вернулись
+			                    //	CreateInq = new ArrayList<HashMap<String, Object>>();
+			                    	//передаем в метод парсинга
+			                   // 	JSONURLLogin(responselogin);
+
+			                        
+			                } catch (Exception e) {
+			                        System.out.println("Exp=" + e);
+			                        
+			                }
+			                return null;
+			        }
+
+			        @Override
+			        protected void onPostExecute(String result) {
+			        	// вызываем step 4
+			        	// 4 тут указываем куда будем конектится, для примера я привел удаленных хост если у вас не получилось освоить wamp (:
+			          new RequestTaskC().execute("http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key, oauth_consumer_key, XCSRFTokenm, login, password, с_sender, с_sender_adress, с_sender_email, с_sender_phone, с_receiver_adress, с_receiver, с_receiver_phone, с_weight, с_gabarit, с_receiver_email, с_declarate_walue, с_info);
+			          Log.d("+URLCreateinq", "http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key);
+			                super.onPostExecute(result);
+			        }
+			        
+			        protected void onProgressUpdate(Integer... progress){  }
+						
+
+			        @Override
+			        protected void onPreExecute() {
+			                super.onPreExecute();
+			        }
+			}
+				 /** 2 step @param result */
+				public void JSONURLLogin(String result) {
+
+			        try {
+			                //создали читателя json объектов и отдали ему строку - result
+			                JSONObject json = new JSONObject(result);
+
+			                //	String XCSRFToken = (String) json.get("token");
+			                //	Log.d("XCSRFToken", (String) json.get("token") + "");
+			              
+			        } catch (JSONException e) {
+			                Log.e("log_tag", "Error parsing data " + e.toString());
+			        }
+			}
+		
+		
+/////////////////////////////////////////////////// 2 step //////////////////////////////////////////////////////////
+/////////////////////////////////////////////////// 4 step //////////////////////////////////////////////////////////	
 	// обработка отправки данных
 	class RequestTaskC extends AsyncTask<String, String, String> {
 
@@ -197,37 +355,43 @@ csp.setText(simnumber);
                         ResponseHandler<String> res = new BasicResponseHandler();
                         //он у нас будет посылать post запрос
                         HttpPost postMethod = new HttpPost(params[0]);
+                        postMethod.setHeader("X-CSRF-Token:"+ XCSRFTokenm,"application/json" );
+                        Log.d("setHeader X-CSRF-Token ni", "X-CSRF-Token:"+ XCSRFTokenm + "");
                         //будем передавать 14 параметров
                         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
                         //передаем параметры из наших текстбоксов в систему
-                        nameValuePairs.add(new BasicNameValuePair("login", params[1]));
-                        Log.d("params[1]", params[1] + "");
-                        nameValuePairs.add(new BasicNameValuePair("password", params[2]));
-                        Log.d("params[2]", params[2] + "");
-                        nameValuePairs.add(new BasicNameValuePair("с_sender", params[3]));
-                        Log.d("params[3]", params[3] + "");
-                        nameValuePairs.add(new BasicNameValuePair("с_sender_adress", params[4]));
-                        Log.d("params[4]", params[4] + "");
+                   //     nameValuePairs.add(new BasicNameValuePair("oauth_consumer_key", params[1]));
+                  //      Log.d("params[1]", params[1] + "");
+                  //      nameValuePairs.add(new BasicNameValuePair("X-CSRF-Token", params[2]));
+                  //      Log.d("X-CSRF-Token_params[2]", params[2] + "");
+                    //    nameValuePairs.add(new BasicNameValuePair("username", params[3]));
+                    //    Log.d("username_params[3]", params[3] + "");
+                    //    nameValuePairs.add(new BasicNameValuePair("password", params[4]));
+                    //    Log.d("password_params[4]", params[4] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_sender_phone", params[5]));
-                        Log.d("params[5]", params[5] + "");
+                        Log.d("с_sender_params[5]", params[5] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_sender_email", params[6]));
-                        Log.d("params[6]", params[6] + "");
+                        Log.d("с_sender_adress_params[6]", params[6] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_receiver", params[7]));
-                        Log.d("params[7]", params[7] + "");
+                        Log.d("с_sender_email_params[7]", params[7] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_receiver_adress", params[8]));
-                        Log.d("params[8]", params[8] + "");
+                        Log.d("с_sender_phone_params[8]", params[8] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_receiver_phone", params[9]));
-                        Log.d("params[9]", params[9] + "");
+                        Log.d("с_receiver_adress_params[9]", params[9] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_weight", params[10]));
-                        Log.d("params[10]", params[10] + "");
+                        Log.d("с_receiver_params[10]", params[10] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_gabarit", params[11]));
-                        Log.d("params[11]", params[11] + "");
+                        Log.d("с_receiver_phone_params[11]", params[11] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_receiver_email", params[12]));
-                        Log.d("params[12]", params[12] + "");
+                        Log.d("с_weight_params[12]", params[12] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_declarate_walue", params[13]));
-                        Log.d("params[13]", params[13] + "");
+                        Log.d("с_gabarit_params[13]", params[13] + "");
                         nameValuePairs.add(new BasicNameValuePair("с_info", params[14]));
-                        Log.d("params[14]", params[14] + "");
+                        Log.d("с_receiver_email_params[14]", params[14] + "");
+                        nameValuePairs.add(new BasicNameValuePair("с_info", params[15]));
+                        Log.d("с_declarate_walue_params[15]", params[15] + "");
+                        nameValuePairs.add(new BasicNameValuePair("с_info", params[16]));
+                        Log.d("с_info_params[16]", params[16] + "");
                         //собераем их вместе и посылаем на сервер
                         postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                         //получаем ответ от сервера
@@ -299,6 +463,8 @@ csp.setText(simnumber);
         }
 }
 	
+/////////////////////////////////////////////////// 4 step //////////////////////////////////////////////////////////	
+	
 	
 	// если нажать кнопку подтвердить заявку
 			public void onClickOkInquiry(View v)
@@ -311,4 +477,8 @@ csp.setText(simnumber);
 			this.finish();
 		}
 		
+		public void onStop () {
+			//do your stuff here
+			super.onStop(); 
+			}
 } 

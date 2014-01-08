@@ -80,7 +80,7 @@
     <!-- Start Activity -->
     <string name="title_activity_start">Teleport. Create and Track</string>
     <string name="text_create_button">Create inquiry</string>
-    <string name="text_start_info">This app created for create inquiry and Track inquiry for Teleport Delivery Service</string>
+    <string name="text_start_info">This app created for Create inquiry and Track inquiry for Teleport Delivery Service</string>
     
 
 </resources>

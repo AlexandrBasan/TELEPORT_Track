@@ -75,5 +75,5 @@
     <!-- Start Activity -->
     <string name="title_activity_start">Teleport. Create and Track</string>
     <string name="text_create_button">Создать заявку на доставку</string>
-    <string name="text_start_info">С помощью этого приложения Вы можете создать заявку на доставку или отследить статус доставки товара</string>
+    <string name="text_start_info">С помощью этого приложения Вы можете создать заявку на доставку или отследить статус доставки посылки</string>
 </resources>
