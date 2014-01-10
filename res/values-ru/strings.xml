@@ -48,7 +48,7 @@
     <string name="с_sender">Ф.И.О. отправителя*</string>
     <string name="с_sender_adress">Адрес отправителя*</string>
     <string name="с_sender_phone">Телефон отправителя*</string>
-    <string name="с_weight">Вес посылки</string>
+    <string name="с_weight">Вес посылки*</string>
     <string name="с_razmer">Габарит посылки</string>
     <string name="с_receiver_adress">Адрес получателя*</string>
     <string name="с_receiver">Ф.И.О. получателя*</string>
@@ -57,12 +57,17 @@
     <string name="с_sender_email">E-mail отправителя*</string>
     <string name="с_declarate_walue">Задекларированная стоимость груза</string>
     <string name="с_info">Дополнительная информация</string>
+    <string name="с_tarif">Тариф доставки</string>
     <string name="dont_work">На данный момент эта функция не работает. Приносим свои извенения за причененные неудобства.</string>
     <string name="enterfields">Пожалуйста заполните обязательные поля</string>
     <string name="inquiryok">Подтвердить</string>
     <string name="inquirycancel">Отменить</string>
     <string name="cinquiryid">ID заявки</string>
     <string name="cinquirycost">Стоимость доставки</string>
+    <string name="senderemailvalidation">E-mail отправителя указан не верно. Приложение не может создать заявку.</string>
+    <string name="inquiryoktoast">Ваша заявка подтверждена</string>
+    <string name="inquirycanceltoast">Ваша заявка отменена</string>
+    <string name="toastproblems">Заявка не создана</string>
     
      <string-array name="gabarit">
     <item>Маленький L30 * W25 * H10 (Вес до 3 кг)</item>
@@ -71,7 +76,11 @@
     <item>Большой L133 * W133 * H133  (Вес до 30 кг)</item>
 	</string-array>
 	
-    
+     <string-array name="deliverytarif">
+    <item>Экспресс доставка (Тариф по километражу)</item>
+    <item>Обычная доставка (Тариф по килограммам)</item>
+	</string-array>
+	
     <!-- Start Activity -->
     <string name="title_activity_start">Teleport. Create and Track</string>
     <string name="text_create_button">Создать заявку на доставку</string>

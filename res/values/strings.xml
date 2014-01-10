@@ -53,7 +53,7 @@
     <string name="с_sender">Ф.И.О. отправителя*</string>
     <string name="с_sender_adress">Адрес отправителя*</string>
     <string name="с_sender_phone">Телефон отправителя*</string>
-    <string name="с_weight">Вес посылки</string>
+    <string name="с_weight">Вес посылки*</string>
     <string name="с_razmer">Габарит посылки</string>
     <string name="с_receiver_adress">Адрес получателя*</string>
     <string name="с_receiver">Ф.И.О. получателя*</string>
@@ -62,6 +62,7 @@
     <string name="с_sender_email">E-mail отправителя*</string>
     <string name="с_declarate_walue">Задекларированная стоимость груза</string>
     <string name="с_info">Дополнительная информация</string>
+    <string name="с_tarif">Тариф доставки</string>
     <string name="dont_work">Sorry, but this possibility not work on this moment.</string>
     <string name="enterfields">Please enter required field</string>
     <string name="inquiryok">Ok</string>
@@ -69,12 +70,21 @@
     <string name="cinquiryid">Inquiry ID</string>
     <string name="cinquirycost">Delivery cost</string>
     <string name="Statuscinquiry">.....</string>
+    <string name="senderemailvalidation">Sender e-mail not valid</string>
+    <string name="inquiryoktoast">Ваша заявка подтверждена</string>
+    <string name="inquirycanceltoast">Ваша заявка отменена</string>
+    <string name="toastproblems">Заявка не создана</string>
     
     <string-array name="gabarit">
     <item>Маленький L30 * W25 * H10 (Вес до 3 кг)</item>
     <item>Маленький L35 * W25 * H25 (Вес до 6 кг)</item>
     <item>Средний L100 * W100 * H7  (Вес до 30 кг)</item>
     <item>Большой L133 * W133 * H133  (Вес до 30 кг)</item>
+	</string-array>
+	
+     <string-array name="deliverytarif">
+    <item>Экспресс доставка (Тариф по километражу)</item>
+    <item>Обычная доставка (Тариф по килограммам)</item>
 	</string-array>
     
     <!-- Start Activity -->
