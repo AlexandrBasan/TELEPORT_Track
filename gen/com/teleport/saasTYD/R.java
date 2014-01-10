@@ -208,17 +208,19 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f020015;
         public static final int common_signin_btn_text_pressed_dark=0x7f020016;
         public static final int common_signin_btn_text_pressed_light=0x7f020017;
-        public static final int ic_action_search=0x7f020018;
-        public static final int ic_launcher=0x7f020019;
-        public static final int ic_plusone_medium_off_client=0x7f02001a;
-        public static final int ic_plusone_small_off_client=0x7f02001b;
-        public static final int ic_plusone_standard_off_client=0x7f02001c;
-        public static final int ic_plusone_tall_off_client=0x7f02001d;
-        public static final int indicatorgreen24=0x7f02001e;
-        public static final int indicatorred24=0x7f02001f;
-        public static final int teleport_50_50=0x7f020020;
-        public static final int teleport_logo_white=0x7f020021;
-        public static final int teleport_logo_white_without_url=0x7f020022;
+        public static final int create=0x7f020018;
+        public static final int ic_action_search=0x7f020019;
+        public static final int ic_launcher=0x7f02001a;
+        public static final int ic_plusone_medium_off_client=0x7f02001b;
+        public static final int ic_plusone_small_off_client=0x7f02001c;
+        public static final int ic_plusone_standard_off_client=0x7f02001d;
+        public static final int ic_plusone_tall_off_client=0x7f02001e;
+        public static final int indicatorgreen24=0x7f02001f;
+        public static final int indicatorred24=0x7f020020;
+        public static final int teleport_50_50=0x7f020021;
+        public static final int teleport_logo_white=0x7f020022;
+        public static final int teleport_logo_white_without_url=0x7f020023;
+        public static final int track=0x7f020024;
     }
     public static final class id {
         public static final int Button01=0x7f050029;
@@ -292,10 +294,12 @@ containing a value of this type.
         public static final int track=0x7f0b0001;
     }
     public static final class string {
+        public static final int Adress_hint=0x7f060056;
         public static final int AutoStatus=0x7f060031;
         public static final int Button_cancel=0x7f060024;
         public static final int Button_ok=0x7f060023;
         public static final int DeliveryStatus=0x7f060030;
+        public static final int FIO_hint=0x7f060055;
         public static final int Status=0x7f060032;
         public static final int Statuscinquiry=0x7f06004d;
         public static final int Time=0x7f060033;
@@ -406,14 +410,16 @@ containing a value of this type.
  Error or Warning Label 
          */
         public static final int connection_error=0x7f06002d;
+        public static final int declarate_hint=0x7f060059;
         public static final int dont_work=0x7f060047;
         public static final int enterfields=0x7f060048;
         public static final int enterid=0x7f060037;
         public static final int hello_world=0x7f06001b;
+        public static final int info_hint=0x7f06005a;
         public static final int inquirycancel=0x7f06004a;
-        public static final int inquirycanceltoast=0x7f060050;
+        public static final int inquirycanceltoast=0x7f060051;
         public static final int inquiryok=0x7f060049;
-        public static final int inquiryoktoast=0x7f06004f;
+        public static final int inquiryoktoast=0x7f060050;
         /**  Latitude, longitude format 
  Latitude, longitude format 
          */
@@ -422,6 +428,7 @@ containing a value of this type.
  Label 
          */
         public static final int loading=0x7f060021;
+        public static final int mail_hint=0x7f060057;
         public static final int mapskey=0x7f06001c;
         /**  Menu 
  Menu 
@@ -431,10 +438,16 @@ containing a value of this type.
         public static final int menu_logout=0x7f06001e;
         public static final int menu_update_page=0x7f06001f;
         public static final int orderid=0x7f060036;
+        /**  Create Activity HINT
+ Create Activity HINT
+         */
+        public static final int phone_hint_receiver_phone=0x7f060053;
+        public static final int phone_hint_sender_phone=0x7f060054;
+        public static final int phonevalidation=0x7f06004f;
         public static final int please_wait=0x7f060034;
         public static final int senderemailvalidation=0x7f06004e;
-        public static final int text_create_button=0x7f060053;
-        public static final int text_start_info=0x7f060054;
+        public static final int text_create_button=0x7f06005c;
+        public static final int text_start_info=0x7f06005d;
         public static final int text_teleportds=0x7f06002a;
         public static final int text_track_ID=0x7f060028;
         public static final int text_track_button=0x7f060029;
@@ -449,12 +462,13 @@ containing a value of this type.
         /**  Start Activity 
  Start Activity 
          */
-        public static final int title_activity_start=0x7f060052;
+        public static final int title_activity_start=0x7f06005b;
         /**  Track Activity 
  Track Activity 
          */
         public static final int title_activity_track=0x7f06002f;
-        public static final int toastproblems=0x7f060051;
+        public static final int toastproblems=0x7f060052;
+        public static final int veight_hint=0x7f060058;
         public static final int yourorderid=0x7f060035;
         public static final int с_declarate_walue=0x7f060044;
         public static final int с_info=0x7f060045;

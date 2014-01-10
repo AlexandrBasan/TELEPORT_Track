@@ -34,6 +34,9 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,12 +54,17 @@ public class CreateActivity extends Activity {
 	// JSON Node names
     String deliverycost = "error receiving data";
     String inquiryid = "error receiving data";
-    
+    String inquiryidforuser = "error receiving data";
+    String viewinquiry = "error receiving data";
+    // Validation phone
+//    String regexStr9phone = "^[0-9]{9,9}$";
+//    String regexStr12phone = "^[0-9]{12,12}$";
     // данные для авторизации
-    String oauth_consumer_key = "TTGY9XM8bSFtydVjGMyYWhVWamEPbHHU";
+    String oauth_consumer_key = "NW8onh2tZvadKKXRrkUVfa7aY44erczL";
     String XCSRFTokenm = "XCSRFToken";
-    String login = "alexandr.basan@gmail.com";
-    String password = "Infinity8";
+    String XCSRFTokenmifcancelsave = "";
+    String login = "apimob@teleport-ds.com";
+    String password = "apimob@teleport-ds.comTELEPORT";
     String sessidm = "sessid";
     String session_namem = "session_name";
     // значения полей
@@ -182,7 +190,17 @@ csp.setText(simnumber);
 	    // усли email отправителя корректный проверяем все остальное
 	    if(isEmailValid(с_sender_email)) {
 			Log.d("с_sender_email_true", с_sender_email);// something
-		
+			// проверяем длину номеров телефонов
+			if(csp.getText().length() < 9 || csp.getText().length() > 9 || crp.getText().length() < 12 || crp.getText().length() > 12){
+				// TEST - меньше полей которые проходят валидацию
+		//		if(csp.getText().length() < 9){ //5 char min
+				Toast.makeText(getApplicationContext(), R.string.phonevalidation, Toast.LENGTH_LONG).show();
+				Log.d("c_sender_phone_validation_fail", "<9" + ">9");
+				Log.d("c_receiver_phone_validation_fail", "<12" + ">12");// something//Show error
+			}
+			else{
+			    //Do match
+			
 		
 		if(с_sender.matches("") || с_sender_adress.matches("") || с_sender_phone.matches("") || с_receiver_adress.matches("") || с_receiver.matches("") || с_receiver_phone.matches("") || с_sender_email.matches("")  || с_weight.matches("")){
 
@@ -218,11 +236,11 @@ csp.setText(simnumber);
 
 
 
-		}
+		} }
 		
 	    } else {
 			Log.d("с_sender_email_false", с_sender_email);//something else
-			Toast.makeText(getApplicationContext(), R.string.please_wait, Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), R.string.senderemailvalidation, Toast.LENGTH_LONG).show();
 		}
 		
 	}
@@ -390,19 +408,19 @@ csp.setText(simnumber);
         protected String doInBackground(String... params) {
 
                 try {
+               
                         //создаем запрос на сервер
                         DefaultHttpClient hc = new DefaultHttpClient();
                         ResponseHandler<String> res = new BasicResponseHandler();
                         //он у нас будет посылать post запрос
                         HttpPost postMethod = new HttpPost(params[0]);
-                        
                   //      postMethod.setHeader("X-CSRF-Token:"+ XCSRFTokenm, "application/json" );
                        postMethod.setHeader("X-CSRF-Token",XCSRFTokenm );
                         Log.d("setHeader X-CSRF-Token ni", "X-CSRF-Token: "+ XCSRFTokenm + "");
                         // не логинится при этом
                    //     postMethod.setHeader("Cookie: "+ session_namem + "=" + sessidm, "application/json" );
                         postMethod.addHeader("Cookie ", session_namem + "=" + sessidm );
-                        Log.d("setHeader session", "Cookie :"+ session_namem + "=" + sessidm + "");
+                        Log.d("setHeader Cookie", "Cookie :"+ session_namem + "=" + sessidm + "");
                         // будем передавать 14 параметров
                         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
                         //передаем параметры из наших текстбоксов в систему
@@ -414,13 +432,13 @@ csp.setText(simnumber);
                 //        Log.d("username_params[3]", params[3] + "");
                 //        nameValuePairs.add(new BasicNameValuePair("password", params[4]));
                 //        Log.d("password_params[4]", params[4] + "");
-                        nameValuePairs.add(new BasicNameValuePair("с_sender_phone", params[5]));
+                        nameValuePairs.add(new BasicNameValuePair("field_sender[und][0][value]", params[5]));
                         Log.d("с_sender_params[5]", params[5] + "");
-                        nameValuePairs.add(new BasicNameValuePair("с_sender_email", params[6]));
+                        nameValuePairs.add(new BasicNameValuePair("field_sender_adress[und][0][value]", params[6]));
                         Log.d("с_sender_adress_params[6]", params[6] + "");
-                        nameValuePairs.add(new BasicNameValuePair("с_receiver", params[7]));
+                        nameValuePairs.add(new BasicNameValuePair("field_sender_email[und][0][value]", params[7]));
                         Log.d("с_sender_email_params[7]", params[7] + "");
-                        nameValuePairs.add(new BasicNameValuePair("с_receiver_adress", params[8]));
+                        nameValuePairs.add(new BasicNameValuePair("field_sender_phone[und][0][value]", params[8]));
                         Log.d("с_sender_phone_params[8]", params[8] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_address_dos_zd[und][0][value]", params[9]));
                         Log.d("с_receiver_adress_params[9]", params[9] + "");
@@ -445,7 +463,7 @@ csp.setText(simnumber);
                         nameValuePairs.add(new BasicNameValuePair("type", params[19]));
                         Log.d("type", params[19] + "");
                         //собераем их вместе и посылаем на сервер
-                        postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                        postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
                         //получаем ответ от сервера
                         String responseni = hc.execute(postMethod, res);
                         Log.d("HTTP response", responseni + "");
@@ -471,7 +489,7 @@ csp.setText(simnumber);
             TextView cost = (TextView) findViewById(R.id.textView13);
             TextView id = (TextView) findViewById(R.id.textView15);
             cost.setText(deliverycost);
-            id.setText(inquiryid);
+            id.setText(inquiryidforuser);
                 
                 super.onPostExecute(result);
         }
@@ -493,13 +511,20 @@ csp.setText(simnumber);
         try {
                 //создали читателя json объектов и отдали ему строку - result
                 JSONObject json = new JSONObject(result);
+                // определяем техническое ID заявки
+                inquiryid = (String) json.get("id");              	
+            	Log.d("inquiryid", (String) json.get("id") + "");
+            	// значения передаются в формате Integer поэтому нужно конвертировать данные в String
+            	String deliverydos = String.valueOf(json.get("deliverydos"));              	
+            	Log.d("deliverydos", String.valueOf(json.get("deliverydos")) + "");
+            	deliverycost = String.valueOf(json.get("cost_delivery"));              	
+            	Log.d("deliverycost", String.valueOf(json.get("cost_delivery")) + "");
+            	inquiryidforuser = (String) json.get("id_zd");              	
+            	Log.d("inquiryidforuser", (String) json.get("id_zd") + "");
+            	viewinquiry = String.valueOf(json.get("view_uri"));
+            	Log.d("viewinquiry", (String) json.get("id_zd") + "");
 
-                	deliverycost = (String) json.get("view_uri");
-                	Log.d("deliverycost", (String) json.get("view_uri") + "");
-                	inquiryid = (String) json.get("id");
-                	Log.d("inquiryid", (String) json.get("id") + "");
-                	
-              
+            	
         } catch (JSONException e) {
                 Log.e("log_tag", "Error parsing data " + e.toString());
         }
@@ -520,22 +545,22 @@ ResponseHandler<String> res = new BasicResponseHandler();
 //он у нас будет посылать post запрос
 HttpPut postMethod = new HttpPut(params[0]);
 postMethod.setHeader("X-CSRF-Token",XCSRFTokenm );
-Log.d("setHeader X-CSRF-Token ni", "X-CSRF-Token: "+ XCSRFTokenm + "");
+Log.d("setHeader X-CSRF-Token cancel inquiry", "X-CSRF-Token: "+ XCSRFTokenm + "");
 postMethod.addHeader("Cookie ", session_namem + "=" + sessidm );
-Log.d("setHeader session", "Cookie :"+ session_namem + "=" + sessidm + "");
+Log.d("setHeader Cookie", "Cookie :"+ session_namem + "=" + sessidm + "");
 // будем передавать 14 параметров
 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
 nameValuePairs.add(new BasicNameValuePair("field_avtostatus[und][0][value]", params[1]));
 Log.d("field_avtostatus[und][0][value]_params[1]", params[1] + "");
 //собераем их вместе и посылаем на сервер
-postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
 //получаем ответ от сервера
 String responsenicancel = hc.execute(postMethod, res);
 Log.d("HTTP responsenicancel", responsenicancel + "");
 // обработываем значения которые вернулись
 //	CreateInq = new ArrayList<HashMap<String, Object>>();
 //передаем в метод парсинга
-JSONURLc(responsenicancel);
+//JSONURLc(responsenicancel);
 
 } catch (Exception e) {
 System.out.println("Exp=" + e);
@@ -586,6 +611,7 @@ super.onPreExecute();
 			public void onClickOkInquiry(View v)
 			{
 				if(deliverycost.matches("error receiving data") || inquiryid.matches("error receiving data")) {
+					
 					Toast.makeText(getApplicationContext(), R.string.toastproblems, Toast.LENGTH_LONG).show();
 					 Log.d("toastproblems", "toastproblems");
 				 } else {
@@ -593,21 +619,42 @@ super.onPreExecute();
 					 Toast.makeText(this, R.string.inquiryoktoast, Toast.LENGTH_LONG).show();
 					 Log.d("inquiryoktoast", "inquiryoktoast");
 					}
-				
+				// если пользователь нажал OK то сохраняем значение переменной X-SCRF-Token и обнуляем его чтобы при выходе заявка не отменилась
+				XCSRFTokenmifcancelsave = XCSRFTokenm;
+				Log.d("XCSRFTokenmifcancelsave", XCSRFTokenmifcancelsave);
+				XCSRFTokenm = "inquiry confirmed";
+				Log.d("XCSRFTokenm confirmed", XCSRFTokenm);
 			}
 			
 		// если нажать кнопку отменить заявку
 		public void onClickCancelInquiry(View v)
 		{
-			
-			this.finish();
+			if(XCSRFTokenm.matches("inquiry confirmed")) {
+//				если пользователь нажал клавишу отмена после подтверждения заявки возвращаем значение реального ключа на место
+				XCSRFTokenm = XCSRFTokenmifcancelsave;
+				Log.d("XCSRFTokenm cancel after ok", XCSRFTokenm);
+				Toast.makeText(this, R.string.inquirycanceltoast, Toast.LENGTH_LONG).show();
+				this.finish();
+				
+			 } else {
+					
+				 this.finish();
+				}
+
 		}
 		
 		public void onStop () {
 			// отменяем заявку
-			new RequestTaskCancelInq().execute("http://saas.teleport-ds.com/document/1.0/ni/" + inquiryid + "?oauth_consumer_key=" + oauth_consumer_key, field_avtostatus);
-	        Log.d("+URLRequestTaskCancelInq", "http://saas.teleport-ds.com/document/1.0/ni/" + inquiryid + "?oauth_consumer_key=" + oauth_consumer_key);
-			Toast.makeText(this, R.string.inquirycanceltoast, Toast.LENGTH_LONG).show();
+			new RequestTaskCancelInq().execute("http://saas.teleport-ds.com/document/1.0/ni/" + inquiryid + ".json?oauth_consumer_key=" + oauth_consumer_key, field_avtostatus);
+	        Log.d("+URLRequestTaskCancelInq", "http://saas.teleport-ds.com/document/1.0/ni/" + inquiryid + ".json?oauth_consumer_key=" + oauth_consumer_key);
+	       
+	        if(XCSRFTokenm.matches("inquiry confirmed")) {
+	        	Toast.makeText(this, R.string.inquiryoktoast, Toast.LENGTH_LONG).show();
+				 Log.d("inquiryoktoast", "inquiryoktoast");
+				
+			 } else {
+				 Toast.makeText(this, R.string.inquirycanceltoast, Toast.LENGTH_LONG).show();
+				}
 			//do your stuff here
 			super.onStop(); 
 			}

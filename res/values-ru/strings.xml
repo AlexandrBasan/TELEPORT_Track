@@ -65,9 +65,19 @@
     <string name="cinquiryid">ID заявки</string>
     <string name="cinquirycost">Стоимость доставки</string>
     <string name="senderemailvalidation">E-mail отправителя указан не верно. Приложение не может создать заявку.</string>
+    <string name="phonevalidation">Телефон отправителя или получателя указан не верно.</string>
     <string name="inquiryoktoast">Ваша заявка подтверждена</string>
     <string name="inquirycanceltoast">Ваша заявка отменена</string>
     <string name="toastproblems">Заявка не создана</string>
+        <!-- Create Activity HINT-->
+    <string name="phone_hint_receiver_phone">Пример: +380971112233</string>
+    <string name="phone_hint_sender_phone">Пример: 971112233</string>
+    <string name="FIO_hint">Пример: Иванов Иван</string>
+    <string name="Adress_hint">Пример: 10 Ивана Кудряшова</string>
+    <string name="mail_hint">Пример: ivan@gmail.com</string>
+    <string name="veight_hint">Пример: 1.2</string>
+    <string name="declarate_hint">Пример: 100</string>
+    <string name="info_hint">Пример: Доставить до 10</string>
     
      <string-array name="gabarit">
     <item>Маленький L30 * W25 * H10 (Вес до 3 кг)</item>
