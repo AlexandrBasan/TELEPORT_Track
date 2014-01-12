@@ -30,7 +30,7 @@ import org.apache.http.message.BasicNameValuePair;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-public class StartActivity extends Activity {
+public class HistoryActivity extends Activity {
 
 	
 
@@ -38,11 +38,42 @@ public class StartActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     //    this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_history);
 
         {          
             {
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+            	   DatabaseHandler db = new DatabaseHandler(this);
+                   
+                   /**
+                    * CRUD Operations
+                    * */
+                   // Inserting Contacts
+              //     Log.d("Insert: ", "Inserting .."); 
+                   // работает нормально, чтобы не захламлять базу отключено
+              //     db.addContact(new SQLInquiry("Ravi2", "9100000000"));        
+              //     db.addContact(new SQLInquiry("Srinivas2", "9199999999"));
+              //     db.addContact(new SQLInquiry("Tommy2", "9522222222"));
+              //     db.addContact(new SQLInquiry("Karthik2", "9533333333"));
+                    
+                   // Reading all contacts
+                   Log.d("Reading: ", "Reading all contacts.."); 
+                   List<SQLInquiry> contacts = db.getAllContacts();       
+                    
+                   for (SQLInquiry cn : contacts) {
+                   //    String log = "Id: "+cn.getID()+" ,Name: " + cn.getInquiryID() + " ,Phone: " + cn.getInquiryTime();
+                	   String log = "Id: "+ cn.getID() + " ,inquiryidforuser from SQL: " + cn.getInquiryID() + " ,inquirytime from SQL: " + cn.getInquiryTime() + " ,getInquirycost from SQL: " + cn.getinquiry_cost();
+                           // Writing Contacts to log
+                	   Log.d("Name: ", log);
+                   Log.d("inquiryidforuser_SQL: ", cn.getInquiryID() + "");
+                   Log.d("inquirytime_SQL: ", cn.getInquiryTime() + "");
+                  Log.d("Inquirycost_SQL: ", cn.getinquiry_cost() + "");
+                   Log.d("sender_adress_SQL: ", cn.getsender_adress() + "");
+                   Log.d("receiver_fio_SQL: ", cn.getreceiver_fio() + "");
+                   Log.d("receiver_adress_SQL: ", cn.getreceiver_adress() + "");
+                   Log.d("receiver_phone_SQL: ", cn.getreceiver_phone() + "");
+               }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
           };
        
@@ -89,22 +120,5 @@ public class StartActivity extends Activity {
 		super.onResume();
 } 
 	
-	public void onClickTrackact(View v)
-	{
-	    Intent intent = new Intent(StartActivity.this, MainActivity.class);
-	    startActivity(intent);
-	}
-	
-	public void onClickCreate(View v)
-	{
-	    Intent intent = new Intent(StartActivity.this, CreateActivity.class);
-	    startActivity(intent);
-	}
-	
-	public void onClickhistory(View v)
-	{
-	    Intent intent = new Intent(StartActivity.this, HistoryActivity.class);
-	    startActivity(intent);
-	}
 	
 } 

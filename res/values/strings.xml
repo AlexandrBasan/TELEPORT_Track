@@ -43,6 +43,7 @@
     <string name="Status">loading...</string>
     <string name="Time">Time:</string>
     <string name="please_wait">Please wait. Receiving information about your order</string>
+    <string name="please_wait_create_inq">Please wait. Creat inquiry in process...</string>
     <string name="yourorderid">Your order ID:</string>
     <string name="orderid">...order ID...</string>
     <string name="enterid">please enter inquiry ID</string>
@@ -85,6 +86,10 @@
     <string name="declarate_hint">Пример: 100</string>
     <string name="info_hint">Пример: Доставить до 10</string>
     
+     <!-- History Activity -->
+    <string name="title_inquiry_history">Inquiry History</string>
+    <string name="text_history_button">History</string>
+   
     
     <!-- SQL Database-->
     <string name="sqlinquiryid"> ,Inquiry ID: </string>
@@ -104,8 +109,8 @@
 	</string-array>
     
     <!-- Start Activity -->
-    <string name="title_activity_start">Teleport. Create and Track</string>
-    <string name="text_create_button">Create inquiry</string>
+    <string name="title_activity_start">Teleport Track</string>
+    <string name="text_create_button">Create</string>
     <string name="text_start_info">This app created for Create inquiry and Track inquiry for Teleport Delivery Service</string>
     
 

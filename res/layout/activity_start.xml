@@ -45,18 +45,26 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/TextView01"
-        android:layout_toLeftOf="@+id/button1"
         android:drawableBottom="@drawable/create"
         android:onClick="onClickCreate"
         android:text="@string/text_create_button" />
 
     <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView01"
+        android:drawableBottom="@drawable/history"
+        android:onClick="onClickhistory"
+        android:text="@string/text_history_button" />
+
+    <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/Button01"
-        android:layout_alignBottom="@+id/Button01"
-        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView01"
+        android:layout_centerHorizontal="true"
         android:drawableBottom="@drawable/track"
         android:onClick="onClickTrackact"
         android:text="@string/text_track_button" />
@@ -67,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/Button01"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/text_track_your_delivery_attention"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 

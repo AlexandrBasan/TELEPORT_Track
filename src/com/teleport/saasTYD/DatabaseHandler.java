@@ -13,7 +13,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 4;
  
     // Database Name
     private static final String DATABASE_NAME = "InquiryManager";
@@ -21,10 +21,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Contacts table name
     private static final String TABLE_Inquiry = "inquiry";
  
-    // Contacts Table Columns names
+    // Inquiry Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_inquiry_id = "inquiry_id";
     private static final String KEY_inquiry_time = "inquiry_time";
+    //
+    private static final String KEY_inquiry_cost = "inquiry_cost";
+    private static final String KEY_sender_adress = "sender_adress";
+    private static final String KEY_receiver_fio = "receiver_fio";
+    private static final String KEY_receiver_adress = "receiver_adress";
+    private static final String KEY_receiver_phone = "receiver_phone";
  
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,7 +41,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_Inquiry + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_inquiry_id + " TEXT,"
-                + KEY_inquiry_time + " TEXT" + ")";
+                + KEY_inquiry_time + " TEXT,"
+                + KEY_inquiry_cost + " TEXT,"
+                + KEY_sender_adress + " TEXT,"
+                + KEY_receiver_fio + " TEXT,"
+                + KEY_receiver_adress + " TEXT,"
+                + KEY_receiver_phone + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
  
@@ -53,36 +64,41 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * All CRUD(Create, Read, Update, Delete) Operations
      */
  
-    // Adding new contact
+    // Adding new inquiry
     void addContact(SQLInquiry contact) {
         SQLiteDatabase db = this.getWritableDatabase();
  
         ContentValues values = new ContentValues();
         values.put(KEY_inquiry_id, contact.getInquiryID()); // Contact Name
-        values.put(KEY_inquiry_time, contact.getInquiryTime()); // Contact Phone
+        values.put(KEY_inquiry_time, contact.getInquiryTime());
+        values.put(KEY_inquiry_cost, contact.getinquiry_cost());
+        values.put(KEY_sender_adress, contact.getsender_adress());
+        values.put(KEY_receiver_fio, contact.getreceiver_fio());
+        values.put(KEY_receiver_adress, contact.getreceiver_adress());
+        values.put(KEY_receiver_phone, contact.getreceiver_phone());// Contact Phone
  
         // Inserting Row
         db.insert(TABLE_Inquiry, null, values);
         db.close(); // Closing database connection
     }
  
-    // Getting single contact
+    // Getting single inquiry
     SQLInquiry getContact(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
  
         Cursor cursor = db.query(TABLE_Inquiry, new String[] { KEY_ID,
-        		KEY_inquiry_id, KEY_inquiry_time }, KEY_ID + "=?",
+        		KEY_inquiry_id, KEY_inquiry_time, KEY_inquiry_cost, KEY_sender_adress, KEY_receiver_fio, KEY_receiver_adress, KEY_receiver_phone }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
  
         SQLInquiry contact = new SQLInquiry(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2));
+                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
         // return contact
         return contact;
     }
      
-    // Getting All Contacts
+    // Getting All Inquiry
     public List<SQLInquiry> getAllContacts() {
         List<SQLInquiry> contactList = new ArrayList<SQLInquiry>();
         // Select All Query
@@ -98,6 +114,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 contact.setID(Integer.parseInt(cursor.getString(0)));
                 contact.setInquiryID(cursor.getString(1));
                 contact.setInquiryTime(cursor.getString(2));
+                contact.setinquiry_cost(cursor.getString(3));
+                contact.setsender_adress(cursor.getString(4));
+                contact.setreceiver_fio(cursor.getString(5));
+                contact.setreceiver_adress(cursor.getString(6));
+                contact.setreceiver_phone(cursor.getString(7));
                 // Adding contact to list
                 contactList.add(contact);
             } while (cursor.moveToNext());
@@ -107,20 +128,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return contactList;
     }
  
-    // Updating single contact
+    // Updating single inquiry
     public int updateContact(SQLInquiry contact) {
         SQLiteDatabase db = this.getWritableDatabase();
  
         ContentValues values = new ContentValues();
         values.put(KEY_inquiry_id, contact.getInquiryID());
         values.put(KEY_inquiry_time, contact.getInquiryTime());
+        values.put(KEY_inquiry_cost, contact.getinquiry_cost());
+        values.put(KEY_sender_adress, contact.getsender_adress());
+        values.put(KEY_receiver_fio, contact.getreceiver_fio());
+        values.put(KEY_receiver_adress, contact.getreceiver_adress());
+        values.put(KEY_receiver_phone, contact.getreceiver_phone());
  
         // updating row
         return db.update(TABLE_Inquiry, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(contact.getID()) });
     }
  
-    // Deleting single contact
+    // Deleting single inquiry
     public void deleteContact(SQLInquiry contact) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_Inquiry, KEY_ID + " = ?",

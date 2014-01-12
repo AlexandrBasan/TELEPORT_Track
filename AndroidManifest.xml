@@ -50,6 +50,10 @@
             android:label="@string/title_activity_create" >
         </activity>
          <activity
+            android:name="com.teleport.saasTYD.HistoryActivity"
+            android:label="@string/title_inquiry_history" >
+        </activity>
+         <activity
             android:name="com.teleport.saasTYD.StartActivity"
             android:label="@string/title_activity_start" >
             

@@ -209,18 +209,19 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_dark=0x7f020016;
         public static final int common_signin_btn_text_pressed_light=0x7f020017;
         public static final int create=0x7f020018;
-        public static final int ic_action_search=0x7f020019;
-        public static final int ic_launcher=0x7f02001a;
-        public static final int ic_plusone_medium_off_client=0x7f02001b;
-        public static final int ic_plusone_small_off_client=0x7f02001c;
-        public static final int ic_plusone_standard_off_client=0x7f02001d;
-        public static final int ic_plusone_tall_off_client=0x7f02001e;
-        public static final int indicatorgreen24=0x7f02001f;
-        public static final int indicatorred24=0x7f020020;
-        public static final int teleport_50_50=0x7f020021;
-        public static final int teleport_logo_white=0x7f020022;
-        public static final int teleport_logo_white_without_url=0x7f020023;
-        public static final int track=0x7f020024;
+        public static final int history=0x7f020019;
+        public static final int ic_action_search=0x7f02001a;
+        public static final int ic_launcher=0x7f02001b;
+        public static final int ic_plusone_medium_off_client=0x7f02001c;
+        public static final int ic_plusone_small_off_client=0x7f02001d;
+        public static final int ic_plusone_standard_off_client=0x7f02001e;
+        public static final int ic_plusone_tall_off_client=0x7f02001f;
+        public static final int indicatorgreen24=0x7f020020;
+        public static final int indicatorred24=0x7f020021;
+        public static final int teleport_50_50=0x7f020022;
+        public static final int teleport_logo_white=0x7f020023;
+        public static final int teleport_logo_white_without_url=0x7f020024;
+        public static final int track=0x7f020025;
     }
     public static final class id {
         public static final int Button01=0x7f050029;
@@ -284,26 +285,27 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int activity_create=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_start=0x7f030002;
-        public static final int activity_track=0x7f030003;
-        public static final int list=0x7f030004;
+        public static final int activity_history=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_start=0x7f030003;
+        public static final int activity_track=0x7f030004;
+        public static final int list=0x7f030005;
     }
     public static final class menu {
         public static final int activity_main=0x7f0b0000;
         public static final int track=0x7f0b0001;
     }
     public static final class string {
-        public static final int Adress_hint=0x7f060056;
+        public static final int Adress_hint=0x7f060057;
         public static final int AutoStatus=0x7f060031;
         public static final int Button_cancel=0x7f060024;
         public static final int Button_ok=0x7f060023;
         public static final int DeliveryStatus=0x7f060030;
-        public static final int FIO_hint=0x7f060055;
+        public static final int FIO_hint=0x7f060056;
         public static final int Status=0x7f060032;
-        public static final int Statuscinquiry=0x7f06004d;
+        public static final int Statuscinquiry=0x7f06004e;
         public static final int Time=0x7f060033;
-        public static final int Youcourierpos=0x7f060038;
+        public static final int Youcourierpos=0x7f060039;
         public static final int action_settings=0x7f06002e;
         /**  Address format 
  Address format 
@@ -333,8 +335,8 @@ containing a value of this type.
         [CHAR LIMIT=70] 
          */
         public static final int auth_client_using_bad_version_title=0x7f060014;
-        public static final int cinquirycost=0x7f06004c;
-        public static final int cinquiryid=0x7f06004b;
+        public static final int cinquirycost=0x7f06004d;
+        public static final int cinquiryid=0x7f06004c;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -410,16 +412,16 @@ containing a value of this type.
  Error or Warning Label 
          */
         public static final int connection_error=0x7f06002d;
-        public static final int declarate_hint=0x7f060059;
-        public static final int dont_work=0x7f060047;
-        public static final int enterfields=0x7f060048;
-        public static final int enterid=0x7f060037;
+        public static final int declarate_hint=0x7f06005a;
+        public static final int dont_work=0x7f060048;
+        public static final int enterfields=0x7f060049;
+        public static final int enterid=0x7f060038;
         public static final int hello_world=0x7f06001b;
-        public static final int info_hint=0x7f06005a;
-        public static final int inquirycancel=0x7f06004a;
-        public static final int inquirycanceltoast=0x7f060051;
-        public static final int inquiryok=0x7f060049;
-        public static final int inquiryoktoast=0x7f060050;
+        public static final int info_hint=0x7f06005b;
+        public static final int inquirycancel=0x7f06004b;
+        public static final int inquirycanceltoast=0x7f060052;
+        public static final int inquiryok=0x7f06004a;
+        public static final int inquiryoktoast=0x7f060051;
         /**  Latitude, longitude format 
  Latitude, longitude format 
          */
@@ -428,7 +430,7 @@ containing a value of this type.
  Label 
          */
         public static final int loading=0x7f060021;
-        public static final int mail_hint=0x7f060057;
+        public static final int mail_hint=0x7f060058;
         public static final int mapskey=0x7f06001c;
         /**  Menu 
  Menu 
@@ -437,21 +439,23 @@ containing a value of this type.
         public static final int menu_exit=0x7f060020;
         public static final int menu_logout=0x7f06001e;
         public static final int menu_update_page=0x7f06001f;
-        public static final int orderid=0x7f060036;
+        public static final int orderid=0x7f060037;
         /**  Create Activity HINT
  Create Activity HINT
          */
-        public static final int phone_hint_receiver_phone=0x7f060053;
-        public static final int phone_hint_sender_phone=0x7f060054;
-        public static final int phonevalidation=0x7f06004f;
+        public static final int phone_hint_receiver_phone=0x7f060054;
+        public static final int phone_hint_sender_phone=0x7f060055;
+        public static final int phonevalidation=0x7f060050;
         public static final int please_wait=0x7f060034;
-        public static final int senderemailvalidation=0x7f06004e;
+        public static final int please_wait_create_inq=0x7f060035;
+        public static final int senderemailvalidation=0x7f06004f;
         /**  SQL Database
          */
-        public static final int sqlinquiryid=0x7f06005b;
-        public static final int sqlinquirytime=0x7f06005c;
-        public static final int text_create_button=0x7f06005e;
-        public static final int text_start_info=0x7f06005f;
+        public static final int sqlinquiryid=0x7f06005e;
+        public static final int sqlinquirytime=0x7f06005f;
+        public static final int text_create_button=0x7f060061;
+        public static final int text_history_button=0x7f06005d;
+        public static final int text_start_info=0x7f060062;
         public static final int text_teleportds=0x7f06002a;
         public static final int text_track_ID=0x7f060028;
         public static final int text_track_button=0x7f060029;
@@ -461,32 +465,36 @@ containing a value of this type.
         /**  Create Activity 
  Create Activity 
          */
-        public static final int title_activity_create=0x7f060039;
+        public static final int title_activity_create=0x7f06003a;
         public static final int title_activity_main=0x7f060022;
         /**  Start Activity 
  Start Activity 
          */
-        public static final int title_activity_start=0x7f06005d;
+        public static final int title_activity_start=0x7f060060;
         /**  Track Activity 
  Track Activity 
          */
         public static final int title_activity_track=0x7f06002f;
-        public static final int toastproblems=0x7f060052;
-        public static final int veight_hint=0x7f060058;
-        public static final int yourorderid=0x7f060035;
-        public static final int с_declarate_walue=0x7f060044;
-        public static final int с_info=0x7f060045;
-        public static final int с_razmer=0x7f06003e;
-        public static final int с_receiver=0x7f060040;
-        public static final int с_receiver_adress=0x7f06003f;
-        public static final int с_receiver_email=0x7f060042;
-        public static final int с_receiver_phone=0x7f060041;
-        public static final int с_sender=0x7f06003a;
-        public static final int с_sender_adress=0x7f06003b;
-        public static final int с_sender_email=0x7f060043;
-        public static final int с_sender_phone=0x7f06003c;
-        public static final int с_tarif=0x7f060046;
-        public static final int с_weight=0x7f06003d;
+        /**  History Activity 
+ History Activity 
+         */
+        public static final int title_inquiry_history=0x7f06005c;
+        public static final int toastproblems=0x7f060053;
+        public static final int veight_hint=0x7f060059;
+        public static final int yourorderid=0x7f060036;
+        public static final int с_declarate_walue=0x7f060045;
+        public static final int с_info=0x7f060046;
+        public static final int с_razmer=0x7f06003f;
+        public static final int с_receiver=0x7f060041;
+        public static final int с_receiver_adress=0x7f060040;
+        public static final int с_receiver_email=0x7f060043;
+        public static final int с_receiver_phone=0x7f060042;
+        public static final int с_sender=0x7f06003b;
+        public static final int с_sender_adress=0x7f06003c;
+        public static final int с_sender_email=0x7f060044;
+        public static final int с_sender_phone=0x7f06003d;
+        public static final int с_tarif=0x7f060047;
+        public static final int с_weight=0x7f06003e;
     }
     public static final class style {
         public static final int AppTheme=0x7f0a0000;

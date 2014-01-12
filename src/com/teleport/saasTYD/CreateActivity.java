@@ -14,6 +14,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -110,6 +111,9 @@ String simnumber = t.getLine1Number();
 Log.d("SIM PHONE", simnumber + "");
 EditText csp = (EditText) findViewById(R.id.editText3);
 csp.setText(simnumber);
+
+
+
 
             }
           };
@@ -216,7 +220,7 @@ csp.setText(simnumber);
              Toast.makeText(this, R.string.enterfields, Toast.LENGTH_LONG).show();
 		}else{
 			
-		Toast.makeText(getApplicationContext(), R.string.please_wait, Toast.LENGTH_LONG).show();
+		Toast.makeText(getApplicationContext(), R.string.please_wait_create_inq, Toast.LENGTH_LONG).show();
 		
 	//    Intent intent = new Intent(CreateActivity.this, MainActivity.class);
 	//    startActivity(intent);
@@ -530,7 +534,7 @@ csp.setText(simnumber);
             	inquiryidforuser = (String) json.get("id_zd");              	
             	Log.d("inquiryidforuser", (String) json.get("id_zd") + "");
             	viewinquiry = String.valueOf(json.get("view_uri"));
-            	Log.d("viewinquiry", (String) json.get("id_zd") + "");
+            	Log.d("viewinquiry", (String) json.get("view_uri") + "");
 
             	
         } catch (JSONException e) {
@@ -632,6 +636,32 @@ super.onPreExecute();
 				Log.d("XCSRFTokenmifcancelsave", XCSRFTokenmifcancelsave);
 				XCSRFTokenm = "inquiry confirmed";
 				Log.d("XCSRFTokenm confirmed", XCSRFTokenm);
+				
+				// записываем значени€ в базу данных
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+DatabaseHandler db = new DatabaseHandler(this);
+//временна€ переменна€ дл€ определени€ времени устройства
+Time nowTime = new Time();
+nowTime.setToNow();
+String snowTime = String.valueOf(nowTime);
+/**
+* CRUD Operations
+* */
+// Inserting Contacts
+     Log.d("Insert to SQL: ", "Inserting .."); 
+// работает нормально, чтобы не захламл€ть базу отключено
+     db.addContact(new SQLInquiry(inquiryidforuser, snowTime, deliverycost, с_sender_adress, с_receiver, с_receiver_adress, с_receiver_phone));
+    
+     Log.d("inquiryidforuser to SQL: ", inquiryidforuser); 
+     Log.d("snowTime to SQL: ", snowTime);
+     Log.d("deliverycost to SQL: ", deliverycost); 
+     Log.d("с_sender_adress to SQL: ", с_sender_adress); 
+     Log.d("с_receiver to SQL: ", с_receiver); 
+     Log.d("с_receiver_adress to SQL: ", с_receiver_adress); 
+     Log.d("с_receiver_phone to SQL: ", с_receiver_phone); 
+     
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 			}
 			
 		// если нажать кнопку отменить за€вку

@@ -15,7 +15,7 @@
     <string name="Button_ok">Сохранить</string>
     <string name="Button_cancel">Закрыть</string>
     
-    <string name="text_track_your_delivery_1">С помощью этого приложения Вы можете отслеживать текущий статус доставки Вашего заказа из интернет магазина. </string>
+    <string name="text_track_your_delivery_1">С помощью этого приложения, Вы можете отслеживать текущий статус доставки Вашего заказа. </string>
     <string name="text_track_your_delivery_attention">Внимание! Отслеживание заявки возможно только если доставка проходит через сервис Teleport Delivery Service.</string>
     <string name="text_track_your_delivery_past_ID">Введите ID код доставки и нажмите кнопку отследить.</string>
     <string name="text_track_ID">ID заявки:</string>
@@ -38,13 +38,14 @@
     <string name="Status">загрузка...</string>
     <string name="Time">Время:</string>
     <string name="please_wait">Пожалуйста подождите. Получаем информацию о вашем заказе.</string>
+    <string name="please_wait_create_inq">Пожалуйста подождите. Создаем заявку на доставку...</string>
     <string name="yourorderid">Номер Вашей заявки:</string>
     <string name="orderid">...ID заявки...</string>
     <string name="enterid">Пожалуйста введите ID заявки</string>
     <string name="Youcourierpos">Ваш курьер сейчас здесь:</string>
     
       <!-- Create Activity -->
-    <string name="title_activity_create">Создать заявку</string>
+    <string name="title_activity_create">Создать</string>
     <string name="с_sender">Ф.И.О. отправителя*</string>
     <string name="с_sender_adress">Адрес отправителя*</string>
     <string name="с_sender_phone">Телефон отправителя*</string>
@@ -79,6 +80,10 @@
     <string name="declarate_hint">Пример: 100</string>
     <string name="info_hint">Пример: Доставить до 10</string>
     
+    <!-- History Activity -->
+    <string name="title_inquiry_history">История заявок</string>
+    <string name="text_history_button">История</string>
+    
      <string-array name="gabarit">
     <item>Маленький L30 * W25 * H10 (Вес до 3 кг)</item>
     <item>Маленький L35 * W25 * H25 (Вес до 6 кг)</item>
@@ -92,7 +97,7 @@
 	</string-array>
 	
     <!-- Start Activity -->
-    <string name="title_activity_start">Teleport. Create and Track</string>
-    <string name="text_create_button">Создать заявку на доставку</string>
+    <string name="title_activity_start">Teleport Track</string>
+    <string name="text_create_button">Создать</string>
     <string name="text_start_info">С помощью этого приложения Вы можете создать заявку на доставку или отследить статус доставки посылки</string>
 </resources>
