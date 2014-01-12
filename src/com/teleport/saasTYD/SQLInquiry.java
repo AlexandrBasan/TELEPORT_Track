@@ -1,9 +1,10 @@
-// http://www.androidhive.info/2012/07/android-gps-location-manager-tutorial/
+// http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
 // http://www.vogella.com/tutorials/AndroidSQLite/article.html
 
 package com.teleport.saasTYD;
 public class SQLInquiry {
      
+	private String comment;
     //private variables
     int _id;
     String _inquiry_id;
@@ -118,5 +119,11 @@ public class SQLInquiry {
     // setting inquiry_time
     public void setreceiver_phone(String receiver_phone){
         this._receiver_phone = receiver_phone;
+    }
+    
+ // Will be used by the ArrayAdapter in the ListView
+    @Override
+    public String toString() {
+      return comment;
     }
 }

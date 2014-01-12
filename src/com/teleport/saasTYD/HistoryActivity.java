@@ -7,17 +7,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
@@ -52,9 +57,7 @@ public class HistoryActivity extends Activity {
               //     Log.d("Insert: ", "Inserting .."); 
                    // работает нормально, чтобы не захламлять базу отключено
               //     db.addContact(new SQLInquiry("Ravi2", "9100000000"));        
-              //     db.addContact(new SQLInquiry("Srinivas2", "9199999999"));
-              //     db.addContact(new SQLInquiry("Tommy2", "9522222222"));
-              //     db.addContact(new SQLInquiry("Karthik2", "9533333333"));
+
                     
                    // Reading all contacts
                    Log.d("Reading: ", "Reading all contacts.."); 
@@ -73,6 +76,17 @@ public class HistoryActivity extends Activity {
                    Log.d("receiver_adress_SQL: ", cn.getreceiver_adress() + "");
                    Log.d("receiver_phone_SQL: ", cn.getreceiver_phone() + "");
                }
+                   
+                  
+                  
+                // use the SimpleCursorAdapter to show the
+                   // elements in a ListView
+                   ArrayAdapter<SQLInquiry> adapter = new ArrayAdapter<SQLInquiry>(this,
+                	        android.R.layout.simple_list_item_1, contacts);
+
+                	ListView listView = (ListView) findViewById(R.id.list9);
+                	listView.setAdapter(adapter);
+                	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
           };

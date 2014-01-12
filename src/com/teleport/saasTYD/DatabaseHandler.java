@@ -1,5 +1,10 @@
 package com.teleport.saasTYD;
 
+// http://www.vogella.com/tutorials/AndroidSQLite/article.html#databasetutorial
+//http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
+// http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
+
+
 import java.util.ArrayList;
 import java.util.List;
  
@@ -8,6 +13,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
  
 public class DatabaseHandler extends SQLiteOpenHelper {
  
@@ -54,6 +60,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
+    	Log.w(DatabaseHandler.class.getName(),
+    	        "Upgrading database from version " + oldVersion + " to "
+    	            + newVersion + ", which will destroy all old data");
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_Inquiry);
  
         // Create tables again

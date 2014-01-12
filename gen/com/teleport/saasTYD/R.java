@@ -224,17 +224,17 @@ containing a value of this type.
         public static final int track=0x7f020025;
     }
     public static final class id {
-        public static final int Button01=0x7f050029;
-        public static final int TextView01=0x7f050028;
-        public static final int TextView02=0x7f05002c;
-        public static final int TextView03=0x7f05002a;
-        public static final int TextView04=0x7f05002b;
-        public static final int TextView05=0x7f05002e;
-        public static final int TextView06=0x7f050030;
-        public static final int TextView07=0x7f050031;
+        public static final int Button01=0x7f05002b;
+        public static final int TextView01=0x7f05002a;
+        public static final int TextView02=0x7f05002e;
+        public static final int TextView03=0x7f05002c;
+        public static final int TextView04=0x7f05002d;
+        public static final int TextView05=0x7f050030;
+        public static final int TextView06=0x7f050031;
+        public static final int TextView07=0x7f050032;
         public static final int button1=0x7f05001f;
-        public static final int button2=0x7f050024;
-        public static final int button3=0x7f050025;
+        public static final int button2=0x7f050025;
+        public static final int button3=0x7f050026;
         public static final int editText1=0x7f050006;
         public static final int editText10=0x7f05001a;
         public static final int editText11=0x7f05001c;
@@ -247,27 +247,28 @@ containing a value of this type.
         public static final int editText8=0x7f050016;
         public static final int editText9=0x7f050018;
         public static final int hybrid=0x7f050004;
-        public static final int imageView1=0x7f050027;
-        public static final int list=0x7f05002d;
-        public static final int menu_about=0x7f050036;
-        public static final int menu_exit=0x7f050035;
+        public static final int imageView1=0x7f050029;
+        public static final int list=0x7f05002f;
+        public static final int list9=0x7f050028;
+        public static final int menu_about=0x7f050037;
+        public static final int menu_exit=0x7f050036;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int progressBar1=0x7f05002f;
+        public static final int progressBar1=0x7f050020;
         public static final int satellite=0x7f050002;
         public static final int spinner1=0x7f050010;
         public static final int spinner2=0x7f05001e;
         public static final int terrain=0x7f050003;
-        public static final int text1=0x7f050032;
-        public static final int text2=0x7f050033;
-        public static final int text3=0x7f050034;
+        public static final int text1=0x7f050033;
+        public static final int text2=0x7f050034;
+        public static final int text3=0x7f050035;
         public static final int textView1=0x7f050005;
         public static final int textView10=0x7f050019;
         public static final int textView11=0x7f05001b;
-        public static final int textView12=0x7f050020;
-        public static final int textView13=0x7f050021;
-        public static final int textView14=0x7f050022;
-        public static final int textView15=0x7f050023;
+        public static final int textView12=0x7f050021;
+        public static final int textView13=0x7f050022;
+        public static final int textView14=0x7f050023;
+        public static final int textView15=0x7f050024;
         public static final int textView16=0x7f05000b;
         public static final int textView17=0x7f05001d;
         public static final int textView2=0x7f050007;
@@ -278,7 +279,7 @@ containing a value of this type.
         public static final int textView7=0x7f050013;
         public static final int textView8=0x7f050015;
         public static final int textView9=0x7f050017;
-        public static final int webview=0x7f050026;
+        public static final int webview=0x7f050027;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f070000;

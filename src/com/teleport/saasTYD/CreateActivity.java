@@ -23,6 +23,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -57,6 +58,7 @@ import java.util.regex.Pattern;
 import android.database.sqlite.SQLiteDatabase;
 
 public class CreateActivity extends Activity {
+	ProgressBar pbc;
 	// JSON Node names
     String deliverycost = "error receiving data";
     String inquiryid = "error receiving data";
@@ -163,6 +165,24 @@ csp.setText(simnumber);
 	// если нажать кнопку расчитать
 	public void onClickCreateInq(View v)
 	{
+		
+		
+        
+               
+        // показываем элементы
+		TextView cost = (TextView) findViewById(R.id.textView13);
+        TextView id = (TextView) findViewById(R.id.textView15);
+        pbc = (ProgressBar)findViewById(R.id.progressBar1);
+        pbc.setVisibility(View.VISIBLE);
+        TextView c12 = (TextView) findViewById(R.id.textView12);
+        TextView c14 = (TextView) findViewById(R.id.textView14);
+        cost.setVisibility(View.GONE);
+        id.setVisibility(View.GONE);
+        c12.setVisibility(View.GONE);
+        c14.setVisibility(View.GONE);
+        Button ok = (Button) findViewById(R.id.button2);
+        ok.setVisibility(View.GONE);
+        
 		
 		EditText cs = (EditText) findViewById(R.id.editText1);
 		с_sender = cs.getText().toString();  
@@ -502,6 +522,18 @@ csp.setText(simnumber);
             TextView id = (TextView) findViewById(R.id.textView15);
             cost.setText(deliverycost);
             id.setText(inquiryidforuser);
+            
+            // показываем элементы
+            pbc = (ProgressBar)findViewById(R.id.progressBar1);
+            pbc.setVisibility(View.GONE);
+            TextView c12 = (TextView) findViewById(R.id.textView12);
+            TextView c14 = (TextView) findViewById(R.id.textView14);
+            cost.setVisibility(View.VISIBLE);
+            id.setVisibility(View.VISIBLE);
+            c12.setVisibility(View.VISIBLE);
+            c14.setVisibility(View.VISIBLE);
+            Button ok = (Button) findViewById(R.id.button2);
+            ok.setVisibility(View.VISIBLE);
                 
                 super.onPostExecute(result);
         }

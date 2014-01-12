@@ -283,20 +283,28 @@
         android:text="@string/text_create_button"
         android:onClick="onClickCreateInq" />
 
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cinquirycost"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/blue" />
+        android:textColor="@color/blue"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Statuscinquiry"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/textView14"
@@ -304,14 +312,16 @@
         android:layout_height="wrap_content"
         android:text="@string/cinquiryid"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/blue" />
+        android:textColor="@color/blue"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Statuscinquiry"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/button2"
@@ -319,7 +329,8 @@
         android:layout_height="wrap_content"
         android:text="@string/inquiryok"
         android:textColor="@color/green"
-        android:onClick="onClickOkInquiry" />
+        android:onClick="onClickOkInquiry"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/button3"
