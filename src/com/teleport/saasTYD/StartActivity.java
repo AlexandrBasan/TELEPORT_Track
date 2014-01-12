@@ -42,7 +42,31 @@ public class StartActivity extends Activity {
 
         {          
             {
-         
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+            	   DatabaseHandler db = new DatabaseHandler(this);
+                   
+                   /**
+                    * CRUD Operations
+                    * */
+                   // Inserting Contacts
+                   Log.d("Insert: ", "Inserting .."); 
+                   // работает нормально, чтобы не захламлять базу отключено
+              //     db.addContact(new SQLInquiry("Ravi2", "9100000000"));        
+              //     db.addContact(new SQLInquiry("Srinivas2", "9199999999"));
+              //     db.addContact(new SQLInquiry("Tommy2", "9522222222"));
+              //     db.addContact(new SQLInquiry("Karthik2", "9533333333"));
+                    
+                   // Reading all contacts
+                   Log.d("Reading: ", "Reading all contacts.."); 
+                   List<SQLInquiry> contacts = db.getAllContacts();       
+                    
+                   for (SQLInquiry cn : contacts) {
+                   //    String log = "Id: "+cn.getID()+" ,Name: " + cn.getInquiryID() + " ,Phone: " + cn.getInquiryTime();
+                	   String log = "Id: "+cn.getID()+ R.string.sqlinquiryid + cn.getInquiryID() + R.string.sqlinquirytime + cn.getInquiryTime();
+                           // Writing Contacts to log
+                   Log.d("Name: ", log);
+               }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
           };
        

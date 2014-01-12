@@ -3,10 +3,12 @@ package com.teleport.saasTYD;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -42,6 +44,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import com.teleport.saasTYD.MainActivity.RequestTask;
 
 import java.io.InputStream;
@@ -50,6 +53,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import android.database.sqlite.SQLiteDatabase;
+
 public class CreateActivity extends Activity {
 	// JSON Node names
     String deliverycost = "error receiving data";
@@ -84,6 +89,9 @@ public class CreateActivity extends Activity {
     String field_select_the_rate_km_kg = "";
     String type = "appdelivery";
     String field_avtostatus = "«а€вка отменена магазином";
+    
+    // данные дл€ работы с базой данных
+
     
     // стринги дл€ разбора значений
     private static ArrayList<HashMap<String, Object>> CreateInq;
@@ -658,4 +666,6 @@ super.onPreExecute();
 			//do your stuff here
 			super.onStop(); 
 			}
+		
+		
 } 

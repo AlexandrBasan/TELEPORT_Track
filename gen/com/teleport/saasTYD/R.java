@@ -446,8 +446,12 @@ containing a value of this type.
         public static final int phonevalidation=0x7f06004f;
         public static final int please_wait=0x7f060034;
         public static final int senderemailvalidation=0x7f06004e;
-        public static final int text_create_button=0x7f06005c;
-        public static final int text_start_info=0x7f06005d;
+        /**  SQL Database
+         */
+        public static final int sqlinquiryid=0x7f06005b;
+        public static final int sqlinquirytime=0x7f06005c;
+        public static final int text_create_button=0x7f06005e;
+        public static final int text_start_info=0x7f06005f;
         public static final int text_teleportds=0x7f06002a;
         public static final int text_track_ID=0x7f060028;
         public static final int text_track_button=0x7f060029;
@@ -462,7 +466,7 @@ containing a value of this type.
         /**  Start Activity 
  Start Activity 
          */
-        public static final int title_activity_start=0x7f06005b;
+        public static final int title_activity_start=0x7f06005d;
         /**  Track Activity 
  Track Activity 
          */

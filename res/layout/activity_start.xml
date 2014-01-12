@@ -39,16 +39,6 @@
         android:text="@string/text_start_info"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="26dp"
-        android:text="@string/text_track_your_delivery_attention"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
     <Button
         android:id="@+id/Button01"
         android:layout_width="wrap_content"
@@ -70,5 +60,15 @@
         android:drawableBottom="@drawable/track"
         android:onClick="onClickTrackact"
         android:text="@string/text_track_button" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Button01"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_track_your_delivery_attention"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

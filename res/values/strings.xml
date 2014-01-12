@@ -19,7 +19,7 @@
     <string name="Button_cancel">Cancel</string>
     <string name="text_track_your_delivery_1">With this application you can track the current status of your order delivery from online store. </string>
     <string name="text_track_your_delivery_attention">Attention! Tracking application is possible only if the delivery takes place through the service Teleport Delivery Service.</string>
-    <string name="text_track_your_delivery_past_ID">Enter the ID code of delivery, which is issued to you shop after shop and click track.</string>
+    <string name="text_track_your_delivery_past_ID">Enter the ID code of delivery, which is issued to you shop and click track.</string>
     <string name="text_track_ID">Inquiry ID:</string>
     <string name="text_track_button">Track</string>
     <string name="text_teleportds">www.teleport-ds.com</string>
@@ -84,6 +84,11 @@
     <string name="veight_hint">Пример: 1.2</string>
     <string name="declarate_hint">Пример: 100</string>
     <string name="info_hint">Пример: Доставить до 10</string>
+    
+    
+    <!-- SQL Database-->
+    <string name="sqlinquiryid"> ,Inquiry ID: </string>
+    <string name="sqlinquirytime"> ,Inquiry Time: </string>
     
     
     <string-array name="gabarit">
