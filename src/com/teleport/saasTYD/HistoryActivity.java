@@ -22,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,10 +35,18 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 public class HistoryActivity extends Activity {
 
+	private static ArrayList<HashMap<String, Object>> myBooks;
 	
+	public ListView listView;
+	private static final String IDs = "IDs";
+	private static final String Times = "Times";
+	private static final String costs = "costs";
+	private static final String recs = "recs";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +56,13 @@ public class HistoryActivity extends Activity {
 
         {          
             {
+            	listView = (ListView) findViewById(R.id.list);
+            	
+            	// ArrayList для listview
+            	myBooks = new ArrayList<HashMap<String, Object>>();
+            	HashMap<String, Object> hm;
+            	hm = new HashMap<String, Object>();
+            	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
             	   DatabaseHandler db = new DatabaseHandler(this);
                    
@@ -61,38 +77,67 @@ public class HistoryActivity extends Activity {
                     
                    // Reading all contacts
                    Log.d("Reading: ", "Reading all contacts.."); 
-                   List<SQLInquiry> contacts = db.getAllContacts();       
-                    
+                   List<SQLInquiry> contacts = db.getAllContacts(); 
+                   
                    for (SQLInquiry cn : contacts) {
                    //    String log = "Id: "+cn.getID()+" ,Name: " + cn.getInquiryID() + " ,Phone: " + cn.getInquiryTime();
                 	   String log = "Id: "+ cn.getID() + " ,inquiryidforuser from SQL: " + cn.getInquiryID() + " ,inquirytime from SQL: " + cn.getInquiryTime() + " ,getInquirycost from SQL: " + cn.getinquiry_cost();
                            // Writing Contacts to log
                 	   Log.d("Name: ", log);
+                	   
+                	   hm.put("IDs", cn.getInquiryID());
+                	   Log.d("IDS: ", cn.getInquiryID());
+                	   hm.put("Times", cn.getInquiryTime());
+                	   Log.d("Times: ", cn.getInquiryTime());
+                	   hm.put("costs", cn.getinquiry_cost());
+                	   Log.d("costs: ", cn.getinquiry_cost());
+                	   hm.put("recs", cn.getreceiver_fio());
+                	   Log.d("recs: ", cn.getreceiver_fio());
+                	   
+                	   myBooks.add(hm);
+
                    Log.d("inquiryidforuser_SQL: ", cn.getInquiryID() + "");
                    Log.d("inquirytime_SQL: ", cn.getInquiryTime() + "");
-                  Log.d("Inquirycost_SQL: ", cn.getinquiry_cost() + "");
+                   Log.d("Inquirycost_SQL: ", cn.getinquiry_cost() + "");
                    Log.d("sender_adress_SQL: ", cn.getsender_adress() + "");
                    Log.d("receiver_fio_SQL: ", cn.getreceiver_fio() + "");
                    Log.d("receiver_adress_SQL: ", cn.getreceiver_adress() + "");
                    Log.d("receiver_phone_SQL: ", cn.getreceiver_phone() + "");
-               }
-                   
-                  
-                  
-                // use the SimpleCursorAdapter to show the
-                   // elements in a ListView
-                   ArrayAdapter<SQLInquiry> adapter = new ArrayAdapter<SQLInquiry>(this,
-                	        android.R.layout.simple_list_item_1, contacts);
 
-                	ListView listView = (ListView) findViewById(R.id.list9);
-                	listView.setAdapter(adapter);
+               }
+
+
+                  SimpleAdapter adapter = new SimpleAdapter(HistoryActivity.this, myBooks, R.layout.historylist,
+                          new String[] {  
+       //         		  DatabaseHandler.KEY_inquiry_id,
+                		  IDs,
+                		  Times,
+                		  costs,
+                		  recs
+                		  
+       //     			  DatabaseHandler.KEY_inquiry_time,
+       //     			  DatabaseHandler.KEY_inquiry_cost,
+       //     			  DatabaseHandler.KEY_receiver_fio
+            			  },
+            			  new int[] { 
+                		R.id.inquiryids,
+          			    R.id.inquirytimes,
+          			    R.id.inquirycosts,
+          			    R.id.receiverfios
+        			     });
+ //                          
+                           //выводим в листвбю
+                           listView.setAdapter(adapter);
+                           listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
                 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
           };
        
     }
-
+    
+    
+    
     public void onClickTeleportwww(View v){
     	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://teleport-ds.com/"));
 			startActivity(browserIntent);

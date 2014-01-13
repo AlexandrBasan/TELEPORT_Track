@@ -89,6 +89,13 @@
      <!-- History Activity -->
     <string name="title_inquiry_history">Inquiry History</string>
     <string name="text_history_button">History</string>
+    
+     <!-- History List -->
+    
+    <string name="inquiryidfs">Inquiry ID:</string>
+	<string name="inquirytimefs">Inquiry Time:</string>
+	<string name="inquirycostfs">Inquiry Cost:</string>
+	<string name="receiverfiofs">Receiver:</string>
    
     
     <!-- SQL Database-->

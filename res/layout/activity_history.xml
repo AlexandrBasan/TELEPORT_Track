@@ -15,7 +15,7 @@
         android:visibility="gone" />
 
     <ListView
-        android:id="@+id/list9"
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
     </ListView>
@@ -30,7 +30,8 @@
         android:onClick="onClickTeleportwww"
         android:text="@string/text_teleportds"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/blue" />
+        android:textColor="@color/blue"
+        android:visibility="gone" />
 
    
   

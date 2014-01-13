@@ -11,6 +11,7 @@ import java.util.List;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -23,20 +24,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
     // Database Name
     private static final String DATABASE_NAME = "InquiryManager";
+
  
     // Contacts table name
     private static final String TABLE_Inquiry = "inquiry";
  
     // Inquiry Table Columns names
     private static final String KEY_ID = "id";
-    private static final String KEY_inquiry_id = "inquiry_id";
-    private static final String KEY_inquiry_time = "inquiry_time";
+    public static final String KEY_inquiry_id = "inquiry_id";
+    public static final String KEY_inquiry_time = "inquiry_time";
     //
-    private static final String KEY_inquiry_cost = "inquiry_cost";
-    private static final String KEY_sender_adress = "sender_adress";
-    private static final String KEY_receiver_fio = "receiver_fio";
-    private static final String KEY_receiver_adress = "receiver_adress";
-    private static final String KEY_receiver_phone = "receiver_phone";
+    public static final String KEY_inquiry_cost = "inquiry_cost";
+    public static final String KEY_sender_adress = "sender_adress";
+    public static final String KEY_receiver_fio = "receiver_fio";
+    public static final String KEY_receiver_adress = "receiver_adress";
+    public static final String KEY_receiver_phone = "receiver_phone";
+    
+    
  
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -136,6 +140,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return contact list
         return contactList;
     }
+       
  
     // Updating single inquiry
     public int updateContact(SQLInquiry contact) {
