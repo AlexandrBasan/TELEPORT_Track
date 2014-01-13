@@ -219,9 +219,10 @@ containing a value of this type.
         public static final int indicatorgreen24=0x7f020020;
         public static final int indicatorred24=0x7f020021;
         public static final int teleport_50_50=0x7f020022;
-        public static final int teleport_logo_white=0x7f020023;
-        public static final int teleport_logo_white_without_url=0x7f020024;
-        public static final int track=0x7f020025;
+        public static final int teleport_logo_eng_big=0x7f020023;
+        public static final int teleport_logo_white=0x7f020024;
+        public static final int teleport_logo_white_without_url=0x7f020025;
+        public static final int track=0x7f020026;
     }
     public static final class id {
         public static final int Button01=0x7f05002b;
@@ -248,16 +249,16 @@ containing a value of this type.
         public static final int editText9=0x7f050018;
         public static final int hybrid=0x7f050004;
         public static final int imageView1=0x7f050029;
-        public static final int inquirycosts=0x7f050032;
-        public static final int inquiryids=0x7f050034;
-        public static final int inquirytimes=0x7f050033;
+        public static final int inquirycosts=0x7f050035;
+        public static final int inquiryids=0x7f050033;
+        public static final int inquirytimes=0x7f050032;
         public static final int list=0x7f050028;
         public static final int menu_about=0x7f05003a;
         public static final int menu_exit=0x7f050039;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int progressBar1=0x7f050020;
-        public static final int receiverfios=0x7f050035;
+        public static final int receiverfios=0x7f050034;
         public static final int satellite=0x7f050002;
         public static final int spinner1=0x7f050010;
         public static final int spinner2=0x7f05001e;

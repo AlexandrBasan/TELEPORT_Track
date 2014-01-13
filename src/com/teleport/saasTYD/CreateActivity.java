@@ -67,7 +67,7 @@ public class CreateActivity extends Activity {
     String inquiryidforuser = "error receiving data";
     String viewinquiry = "error receiving data";
     String created = "error receiving data";
-    String sdfd;
+    String sdfd = "error receiving data";
     
     // Validation phone
 //    String regexStr9phone = "^[0-9]{9,9}$";
@@ -576,11 +576,12 @@ csp.setText(simnumber);
             	
             	created = String.valueOf(json.get("created"));
             	Log.d("created", (String) json.get("created") + "");
-//            	Date d = new Date(Long.parseLong(created) * 1000);
-//           	SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy hh:mm:ss a");
-//            	sdfd = sdf.format(d);
-//            	Log.d("sdfd", sdf.format(d) + "");
-      //      	System.out.println(sdf.format(d));
+//            	SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
+        		//this will convert date into string.
+//        		sdfd = formatter.format(created);
+//        		Log.d("sdfd", formatter.format(created) + "");
+
 
             	
         } catch (JSONException e) {

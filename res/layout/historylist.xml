@@ -24,7 +24,8 @@
         android:text="@string/inquirytimefs"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/blue"
-        android:visibility="gone" />
+        android:visibility="gone"
+         />
  
     <TextView
         android:id="@+id/textView3"
@@ -55,7 +56,8 @@
          android:layout_alignLeft="@+id/inquiryids"
          android:layout_alignParentRight="true"
          android:text="TextView"
-         android:visibility="gone" />
+         android:visibility="gone"
+          />
 
      <TextView
          android:id="@+id/receiverfios"
@@ -68,21 +70,21 @@
          android:text="TextView" />
 
      <TextView
-         android:id="@+id/inquiryids"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBaseline="@+id/textView1"
-         android:layout_alignBottom="@+id/textView1"
-         android:layout_centerHorizontal="true"
-         android:text="TextView" />
-
-     <TextView
          android:id="@+id/inquirycosts"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignBaseline="@+id/textView3"
          android:layout_alignBottom="@+id/textView3"
          android:layout_alignLeft="@+id/inquiryids"
+         android:text="TextView" />
+
+     <TextView
+         android:id="@+id/inquiryids"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView1"
+         android:layout_alignBottom="@+id/textView1"
+         android:layout_centerHorizontal="true"
          android:text="TextView" />
  
 </RelativeLayout>
