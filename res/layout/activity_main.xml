@@ -18,7 +18,10 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="21dp"
         android:text="@string/text_track_your_delivery_attention"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="gone"
+        
+         />
 
     <TextView
         android:id="@+id/textView5"
@@ -31,16 +34,6 @@
         android:text="@string/text_teleportds"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/blue" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="21dp"
-        android:text="@string/text_track_button"
-        android:onClick="onClickTrack" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -73,12 +66,21 @@
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="18dp"
-        android:ems="10" />
+        android:layout_below="@+id/textView4"
+        android:ems="10" >
 
-  
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickTrack"
+        android:text="@string/text_track_button" />
 
 </RelativeLayout>

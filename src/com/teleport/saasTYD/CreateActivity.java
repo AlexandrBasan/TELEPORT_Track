@@ -50,7 +50,9 @@ import org.json.JSONObject;
 import com.teleport.saasTYD.MainActivity.RequestTask;
 
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -64,6 +66,9 @@ public class CreateActivity extends Activity {
     String inquiryid = "error receiving data";
     String inquiryidforuser = "error receiving data";
     String viewinquiry = "error receiving data";
+    String created = "error receiving data";
+    String sdfd;
+    
     // Validation phone
 //    String regexStr9phone = "^[0-9]{9,9}$";
 //    String regexStr12phone = "^[0-9]{12,12}$";
@@ -567,6 +572,15 @@ csp.setText(simnumber);
             	Log.d("inquiryidforuser", (String) json.get("id_zd") + "");
             	viewinquiry = String.valueOf(json.get("view_uri"));
             	Log.d("viewinquiry", (String) json.get("view_uri") + "");
+            	
+            	
+            	created = String.valueOf(json.get("created"));
+            	Log.d("created", (String) json.get("created") + "");
+//            	Date d = new Date(Long.parseLong(created) * 1000);
+//           	SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy hh:mm:ss a");
+//            	sdfd = sdf.format(d);
+//            	Log.d("sdfd", sdf.format(d) + "");
+      //      	System.out.println(sdf.format(d));
 
             	
         } catch (JSONException e) {
@@ -682,10 +696,10 @@ String snowTime = String.valueOf(nowTime);
 // Inserting Contacts
      Log.d("Insert to SQL: ", "Inserting .."); 
 // работает нормально, чтобы не захламлять базу отключено
-     db.addContact(new SQLInquiry(inquiryidforuser, snowTime, deliverycost, с_sender_adress, с_receiver, с_receiver_adress, с_receiver_phone));
+     db.addContact(new SQLInquiry(inquiryidforuser, created, deliverycost, с_sender_adress, с_receiver, с_receiver_adress, с_receiver_phone));
     
      Log.d("inquiryidforuser to SQL: ", inquiryidforuser); 
-     Log.d("snowTime to SQL: ", snowTime);
+     Log.d("created to SQL: ", created);
      Log.d("deliverycost to SQL: ", deliverycost); 
      Log.d("с_sender_adress to SQL: ", с_sender_adress); 
      Log.d("с_receiver to SQL: ", с_receiver); 

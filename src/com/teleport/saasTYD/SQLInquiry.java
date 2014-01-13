@@ -121,9 +121,5 @@ public class SQLInquiry {
         this._receiver_phone = receiver_phone;
     }
     
- // Will be used by the ArrayAdapter in the ListView
-    @Override
-    public String toString() {
-      return comment;
-    }
+
 }

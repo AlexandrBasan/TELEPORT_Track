@@ -15,9 +15,9 @@
     <string name="Button_ok">Сохранить</string>
     <string name="Button_cancel">Закрыть</string>
     
-    <string name="text_track_your_delivery_1">С помощью этого приложения, Вы можете отслеживать текущий статус доставки Вашего заказа. </string>
+    <string name="text_track_your_delivery_1">Вы можете отслеживать текущий статус доставки Вашего заказа. </string>
     <string name="text_track_your_delivery_attention">Внимание! Отслеживание заявки возможно только если доставка проходит через сервис Teleport Delivery Service.</string>
-    <string name="text_track_your_delivery_past_ID">Введите ID код доставки и нажмите кнопку отследить.</string>
+    <string name="text_track_your_delivery_past_ID">Введите ID код заявки и нажмите кнопку отследить.</string>
     <string name="text_track_ID">ID заявки:</string>
     <string name="text_track_button">Отследить</string>
     <string name="text_teleportds">www.teleport-ds.com</string>
@@ -35,13 +35,13 @@
     <string name="title_activity_track">Отслеживание заявки</string>
     <string name="DeliveryStatus">Статус доставки:</string>
     <string name="AutoStatus">Системный статус:</string>
-    <string name="Status">загрузка...</string>
+    <string name="Status">...загрузка...</string>
     <string name="Time">Время:</string>
-    <string name="please_wait">Пожалуйста подождите. Получаем информацию о вашем заказе.</string>
-    <string name="please_wait_create_inq">Пожалуйста подождите. Создаем заявку на доставку...</string>
+    <string name="please_wait">Пожалуйста, подождите. Получаем информацию о Вашем заказе.</string>
+    <string name="please_wait_create_inq">Пожалуйста, подождите. Создаем заявку на доставку.</string>
     <string name="yourorderid">Номер Вашей заявки:</string>
     <string name="orderid">...ID заявки...</string>
-    <string name="enterid">Пожалуйста введите ID заявки</string>
+    <string name="enterid">Пожалуйста, введите ID заявки</string>
     <string name="Youcourierpos">Ваш курьер сейчас здесь:</string>
     
       <!-- Create Activity -->
@@ -59,14 +59,14 @@
     <string name="с_declarate_walue">Задекларированная стоимость груза</string>
     <string name="с_info">Дополнительная информация</string>
     <string name="с_tarif">Тариф доставки</string>
-    <string name="dont_work">На данный момент эта функция не работает. Приносим свои извенения за причененные неудобства.</string>
-    <string name="enterfields">Пожалуйста заполните обязательные поля</string>
+    <string name="dont_work">На данный момент эта функция не работает. Приносим свои извинения за временные неудобства.</string>
+    <string name="enterfields">Пожалуйста, заполните обязательные поля</string>
     <string name="inquiryok">Подтвердить</string>
     <string name="inquirycancel">Отменить</string>
     <string name="cinquiryid">ID заявки</string>
     <string name="cinquirycost">Стоимость доставки</string>
-    <string name="senderemailvalidation">E-mail отправителя указан не верно. Приложение не может создать заявку.</string>
-    <string name="phonevalidation">Телефон отправителя или получателя указан не верно.</string>
+    <string name="senderemailvalidation">E-mail отправителя указан неверно. Заявка не может быть создана.</string>
+    <string name="phonevalidation">Телефон отправителя или получателя указан неверно.</string>
     <string name="inquiryoktoast">Ваша заявка подтверждена</string>
     <string name="inquirycanceltoast">Ваша заявка отменена</string>
     <string name="toastproblems">Заявка не создана</string>
@@ -83,6 +83,14 @@
     <!-- History Activity -->
     <string name="title_inquiry_history">История заявок</string>
     <string name="text_history_button">История</string>
+    <string name="receiving_order_status">Пожалуйста, подождите. Получаем информацию о Вашей заявке.</string>
+    
+     <!-- History List -->
+    
+    <string name="inquiryidfs">ID заявки:</string>
+	<string name="inquirytimefs">Время заявки:</string>
+	<string name="inquirycostfs">Стоимость:</string>
+	<string name="receiverfiofs">Получатель:</string>
     
      <string-array name="gabarit">
     <item>Маленький L30 * W25 * H10 (Вес до 3 кг)</item>
@@ -99,5 +107,5 @@
     <!-- Start Activity -->
     <string name="title_activity_start">Teleport Track</string>
     <string name="text_create_button">Создать</string>
-    <string name="text_start_info">С помощью этого приложения Вы можете создать заявку на доставку или отследить статус доставки посылки</string>
+    <string name="text_start_info">Вы можете создать заявку на доставку, отследить статус доставки посылки или просмотреть историю заявок.</string>
 </resources>

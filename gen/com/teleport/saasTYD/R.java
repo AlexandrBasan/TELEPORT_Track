@@ -425,13 +425,14 @@ containing a value of this type.
         public static final int info_hint=0x7f06005b;
         public static final int inquirycancel=0x7f06004b;
         public static final int inquirycanceltoast=0x7f060052;
-        public static final int inquirycostfs=0x7f060060;
+        public static final int inquirycostfs=0x7f060061;
         /**  History List 
+ History List 
          */
-        public static final int inquiryidfs=0x7f06005e;
+        public static final int inquiryidfs=0x7f06005f;
         public static final int inquiryok=0x7f06004a;
         public static final int inquiryoktoast=0x7f060051;
-        public static final int inquirytimefs=0x7f06005f;
+        public static final int inquirytimefs=0x7f060060;
         /**  Latitude, longitude format 
  Latitude, longitude format 
          */
@@ -458,15 +459,16 @@ containing a value of this type.
         public static final int phonevalidation=0x7f060050;
         public static final int please_wait=0x7f060034;
         public static final int please_wait_create_inq=0x7f060035;
-        public static final int receiverfiofs=0x7f060061;
+        public static final int receiverfiofs=0x7f060062;
+        public static final int receiving_order_status=0x7f06005e;
         public static final int senderemailvalidation=0x7f06004f;
         /**  SQL Database
          */
-        public static final int sqlinquiryid=0x7f060062;
-        public static final int sqlinquirytime=0x7f060063;
-        public static final int text_create_button=0x7f060065;
+        public static final int sqlinquiryid=0x7f060063;
+        public static final int sqlinquirytime=0x7f060064;
+        public static final int text_create_button=0x7f060066;
         public static final int text_history_button=0x7f06005d;
-        public static final int text_start_info=0x7f060066;
+        public static final int text_start_info=0x7f060067;
         public static final int text_teleportds=0x7f06002a;
         public static final int text_track_ID=0x7f060028;
         public static final int text_track_button=0x7f060029;
@@ -481,7 +483,7 @@ containing a value of this type.
         /**  Start Activity 
  Start Activity 
          */
-        public static final int title_activity_start=0x7f060064;
+        public static final int title_activity_start=0x7f060065;
         /**  Track Activity 
  Track Activity 
          */

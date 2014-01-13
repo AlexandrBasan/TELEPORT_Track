@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,7 +40,8 @@ import java.util.HashMap;
 import java.util.List;
 public class HistoryActivity extends Activity {
 
-	private static ArrayList<HashMap<String, Object>> myBooks;
+	private static ArrayList<HashMap<String, String>> myBooks;
+	
 	
 	public ListView listView;
 	private static final String IDs = "IDs";
@@ -59,10 +61,11 @@ public class HistoryActivity extends Activity {
             	listView = (ListView) findViewById(R.id.list);
             	
             	// ArrayList для listview
-            	myBooks = new ArrayList<HashMap<String, Object>>();
-            	HashMap<String, Object> hm;
-            	hm = new HashMap<String, Object>();
+            	myBooks = new ArrayList<HashMap<String, String>>();
+            	HashMap<String, String> hm;
+            	hm = new HashMap<String, String>();
             	
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
             	   DatabaseHandler db = new DatabaseHandler(this);
                    
@@ -74,7 +77,6 @@ public class HistoryActivity extends Activity {
                    // работает нормально, чтобы не захламлять базу отключено
               //     db.addContact(new SQLInquiry("Ravi2", "9100000000"));        
 
-                    
                    // Reading all contacts
                    Log.d("Reading: ", "Reading all contacts.."); 
                    List<SQLInquiry> contacts = db.getAllContacts(); 
@@ -85,6 +87,7 @@ public class HistoryActivity extends Activity {
                            // Writing Contacts to log
                 	   Log.d("Name: ", log);
                 	   
+                	   hm = new HashMap<String, String>();
                 	   hm.put("IDs", cn.getInquiryID());
                 	   Log.d("IDS: ", cn.getInquiryID());
                 	   hm.put("Times", cn.getInquiryTime());
@@ -93,31 +96,28 @@ public class HistoryActivity extends Activity {
                 	   Log.d("costs: ", cn.getinquiry_cost());
                 	   hm.put("recs", cn.getreceiver_fio());
                 	   Log.d("recs: ", cn.getreceiver_fio());
-                	   
-                	   myBooks.add(hm);
 
-                   Log.d("inquiryidforuser_SQL: ", cn.getInquiryID() + "");
-                   Log.d("inquirytime_SQL: ", cn.getInquiryTime() + "");
-                   Log.d("Inquirycost_SQL: ", cn.getinquiry_cost() + "");
-                   Log.d("sender_adress_SQL: ", cn.getsender_adress() + "");
-                   Log.d("receiver_fio_SQL: ", cn.getreceiver_fio() + "");
-                   Log.d("receiver_adress_SQL: ", cn.getreceiver_adress() + "");
-                   Log.d("receiver_phone_SQL: ", cn.getreceiver_phone() + "");
+                	   myBooks.add(hm);
+                	   
+            //       Log.d("inquiryidforuser_SQL: ", cn.getInquiryID() + "");
+            //       Log.d("inquirytime_SQL: ", cn.getInquiryTime() + "");
+            //       Log.d("Inquirycost_SQL: ", cn.getinquiry_cost() + "");
+            //       Log.d("sender_adress_SQL: ", cn.getsender_adress() + "");
+            //       Log.d("receiver_fio_SQL: ", cn.getreceiver_fio() + "");
+            //       Log.d("receiver_adress_SQL: ", cn.getreceiver_adress() + "");
+            //       Log.d("receiver_phone_SQL: ", cn.getreceiver_phone() + "");
 
                }
 
 
                   SimpleAdapter adapter = new SimpleAdapter(HistoryActivity.this, myBooks, R.layout.historylist,
                           new String[] {  
-       //         		  DatabaseHandler.KEY_inquiry_id,
+
                 		  IDs,
                 		  Times,
                 		  costs,
                 		  recs
                 		  
-       //     			  DatabaseHandler.KEY_inquiry_time,
-       //     			  DatabaseHandler.KEY_inquiry_cost,
-       //     			  DatabaseHandler.KEY_receiver_fio
             			  },
             			  new int[] { 
                 		R.id.inquiryids,
@@ -129,6 +129,15 @@ public class HistoryActivity extends Activity {
                            //выводим в листвбю
                            listView.setAdapter(adapter);
                            listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+                           
+                           listView.setOnItemClickListener(new ListView.OnItemClickListener() {
+                               @Override
+                               public void onItemClick(AdapterView<?> a, View v, int i, long id) {
+                            	   // Выводит сообщение на какой элемент мы кликнули
+                       //     	   Toast.makeText(getBaseContext(), id + " inquiry in SQL base", Toast.LENGTH_LONG).show();
+                            	   // do whatever you want
+                               }
+                           });
                 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
@@ -136,7 +145,7 @@ public class HistoryActivity extends Activity {
        
     }
     
-    
+
     
     public void onClickTeleportwww(View v){
     	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://teleport-ds.com/"));

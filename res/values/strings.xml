@@ -17,9 +17,9 @@
     <string name="title_activity_main">Teleport Track</string>
     <string name="Button_ok">Save</string>
     <string name="Button_cancel">Cancel</string>
-    <string name="text_track_your_delivery_1">With this application you can track the current status of your order delivery from online store. </string>
+    <string name="text_track_your_delivery_1">Create inquiry, track current status and view history of your orders.</string>
     <string name="text_track_your_delivery_attention">Attention! Tracking application is possible only if the delivery takes place through the service Teleport Delivery Service.</string>
-    <string name="text_track_your_delivery_past_ID">Enter the ID code of delivery, which is issued to you shop and click track.</string>
+    <string name="text_track_your_delivery_past_ID">Enter ID code of inquiry and click track.</string>
     <string name="text_track_ID">Inquiry ID:</string>
     <string name="text_track_button">Track</string>
     <string name="text_teleportds">www.teleport-ds.com</string>
@@ -37,13 +37,13 @@
     
     
          <!-- Track Activity -->
-    <string name="title_activity_track">Track your order</string>
+    <string name="title_activity_track">Track inquiry</string>
     <string name="DeliveryStatus">Delivery Status:</string>
     <string name="AutoStatus">System Status:</string>
     <string name="Status">loading...</string>
     <string name="Time">Time:</string>
-    <string name="please_wait">Please wait. Receiving information about your order</string>
-    <string name="please_wait_create_inq">Please wait. Creat inquiry in process...</string>
+    <string name="please_wait">Please wait. Receiving information about your inquiry</string>
+    <string name="please_wait_create_inq">Please wait. Inquiry is creating.</string>
     <string name="yourorderid">Your order ID:</string>
     <string name="orderid">...order ID...</string>
     <string name="enterid">please enter inquiry ID</string>
@@ -51,44 +51,45 @@
     
      <!-- Create Activity -->
     <string name="title_activity_create">Create your inquiry</string>
-    <string name="с_sender">Ф.И.О. отправителя*</string>
-    <string name="с_sender_adress">Адрес отправителя*</string>
-    <string name="с_sender_phone">Телефон отправителя*</string>
-    <string name="с_weight">Вес посылки*</string>
-    <string name="с_razmer">Габарит посылки</string>
-    <string name="с_receiver_adress">Адрес получателя*</string>
-    <string name="с_receiver">Ф.И.О. получателя*</string>
-    <string name="с_receiver_phone">Телефон получателя*</string>
-    <string name="с_receiver_email">E-mail получателя</string>
-    <string name="с_sender_email">E-mail отправителя*</string>
-    <string name="с_declarate_walue">Задекларированная стоимость груза</string>
-    <string name="с_info">Дополнительная информация</string>
-    <string name="с_tarif">Тариф доставки</string>
-    <string name="dont_work">Sorry, but this possibility not work on this moment.</string>
-    <string name="enterfields">Please enter required field</string>
+    <string name="с_sender">Sender*</string>
+    <string name="с_sender_adress">Sender address*</string>
+    <string name="с_sender_phone">Sender phone*</string>
+    <string name="с_weight">Parcel weight*</string>
+    <string name="с_razmer">Parcel dimensions</string>
+    <string name="с_receiver_adress">Receiver address*</string>
+    <string name="с_receiver">Receiver*</string>
+    <string name="с_receiver_phone">Receiver phone*</string>
+    <string name="с_receiver_email">Receiver e-mail</string>
+    <string name="с_sender_email">Sender e-mail*</string>
+    <string name="с_declarate_walue">Declared value</string>
+    <string name="с_info">Additional information</string>
+    <string name="с_tarif">Delivery type</string>
+    <string name="dont_work">Sorry, this function is not available at the moment.</string>
+    <string name="enterfields">Please fill in required fields</string>
     <string name="inquiryok">Ok</string>
     <string name="inquirycancel">Cancel</string>
     <string name="cinquiryid">Inquiry ID</string>
     <string name="cinquirycost">Delivery cost</string>
     <string name="Statuscinquiry">.....</string>
-    <string name="senderemailvalidation">Sender e-mail not valid</string>
-    <string name="phonevalidation">Sender or receiver phone not valid</string>
-    <string name="inquiryoktoast">Ваша заявка подтверждена</string>
-    <string name="inquirycanceltoast">Ваша заявка отменена</string>
-    <string name="toastproblems">Заявка не создана</string>
+    <string name="senderemailvalidation">Sender e-mail is not valid</string>
+    <string name="phonevalidation">Sender or receiver phone is not valid</string>
+    <string name="inquiryoktoast">Your inquiry is confirmed</string>
+    <string name="inquirycanceltoast">Your inquiry is canceled</string>
+    <string name="toastproblems">Inquiry is not created</string>
     <!-- Create Activity HINT-->
-    <string name="phone_hint_receiver_phone">Пример: 380971112233</string>
-    <string name="phone_hint_sender_phone">Пример: 971112233</string>
-    <string name="FIO_hint">Пример: Иванов Иван</string>
-    <string name="Adress_hint">Пример: 10 Ивана Кудряшова</string>
-    <string name="mail_hint">Пример: ivan@gmail.com</string>
-    <string name="veight_hint">Пример: 1.2</string>
-    <string name="declarate_hint">Пример: 100</string>
-    <string name="info_hint">Пример: Доставить до 10</string>
+    <string name="phone_hint_receiver_phone">E.g.: 380971112233</string>
+    <string name="phone_hint_sender_phone">E.g.: 971112233</string>
+    <string name="FIO_hint">E.g.: John Smith</string>
+    <string name="Adress_hint">E.g.: 10 Evil road</string>
+    <string name="mail_hint">E.g.: john@gmail.com</string>
+    <string name="veight_hint">E.g.: 1.2</string>
+    <string name="declarate_hint">E.g.: 100</string>
+    <string name="info_hint">E.g.: Deliver till 10am</string>
     
      <!-- History Activity -->
     <string name="title_inquiry_history">Inquiry History</string>
     <string name="text_history_button">History</string>
+    <string name="receiving_order_status">Please wait. Receiving information about your inquiry.</string>
     
      <!-- History List -->
     
@@ -118,7 +119,7 @@
     <!-- Start Activity -->
     <string name="title_activity_start">Teleport Track</string>
     <string name="text_create_button">Create</string>
-    <string name="text_start_info">This app created for Create inquiry and Track inquiry for Teleport Delivery Service</string>
+    <string name="text_start_info">Create inquiry, track current status and view history of your orders.</string>
     
 
 </resources>
