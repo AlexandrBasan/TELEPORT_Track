@@ -77,8 +77,8 @@
     <string name="inquirycanceltoast">Your inquiry is canceled</string>
     <string name="toastproblems">Inquiry is not created</string>
     <!-- Create Activity HINT-->
-    <string name="phone_hint_receiver_phone">E.g.: 380971112233</string>
-    <string name="phone_hint_sender_phone">E.g.: 971112233</string>
+    <string name="phone_hint_sender_phone">E.g.: 380971112233</string>
+    <string name="phone_hint_receiver_phone">E.g.: 971112233</string>
     <string name="FIO_hint">E.g.: John Smith</string>
     <string name="Adress_hint">E.g.: 10 Evil road</string>
     <string name="mail_hint">E.g.: john@gmail.com</string>

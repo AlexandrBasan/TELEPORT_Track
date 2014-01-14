@@ -452,11 +452,11 @@ containing a value of this type.
         public static final int menu_logout=0x7f06001e;
         public static final int menu_update_page=0x7f06001f;
         public static final int orderid=0x7f060037;
+        public static final int phone_hint_receiver_phone=0x7f060055;
         /**  Create Activity HINT
  Create Activity HINT
          */
-        public static final int phone_hint_receiver_phone=0x7f060054;
-        public static final int phone_hint_sender_phone=0x7f060055;
+        public static final int phone_hint_sender_phone=0x7f060054;
         public static final int phonevalidation=0x7f060050;
         public static final int please_wait=0x7f060034;
         public static final int please_wait_create_inq=0x7f060035;

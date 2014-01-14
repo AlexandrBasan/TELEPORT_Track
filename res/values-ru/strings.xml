@@ -71,8 +71,8 @@
     <string name="inquirycanceltoast">Ваша заявка отменена</string>
     <string name="toastproblems">Заявка не создана</string>
         <!-- Create Activity HINT-->
-    <string name="phone_hint_receiver_phone">Пример: +380971112233</string>
-    <string name="phone_hint_sender_phone">Пример: 971112233</string>
+    <string name="phone_hint_sender_phone">Пример: 380971112233</string>
+    <string name="phone_hint_receiver_phone">Пример: 971112233</string>
     <string name="FIO_hint">Пример: Иванов Иван</string>
     <string name="Adress_hint">Пример: 10 Ивана Кудряшова</string>
     <string name="mail_hint">Пример: ivan@gmail.com</string>

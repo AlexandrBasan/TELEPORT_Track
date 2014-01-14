@@ -119,6 +119,9 @@ Log.d("SIM PHONE", simnumber + "");
 EditText csp = (EditText) findViewById(R.id.editText3);
 csp.setText(simnumber);
 
+// загружаем данные SavedPreferences в поля телефон и e-mail отправителя
+ loadSavedPreferences();
+
 
 
 
@@ -170,10 +173,6 @@ csp.setText(simnumber);
 	// если нажать кнопку расчитать
 	public void onClickCreateInq(View v)
 	{
-		
-		
-        
-               
         // показываем элементы
 		TextView cost = (TextView) findViewById(R.id.textView13);
         TextView id = (TextView) findViewById(R.id.textView15);
@@ -228,12 +227,12 @@ csp.setText(simnumber);
 	    if(isEmailValid(с_sender_email)) {
 			Log.d("с_sender_email_true", с_sender_email);// something
 			// проверяем длину номеров телефонов
-			if(csp.getText().length() < 9 || csp.getText().length() > 9 || crp.getText().length() < 12 || crp.getText().length() > 12){
+			if(csp.getText().length() < 12 || csp.getText().length() > 12 || crp.getText().length() < 9 || crp.getText().length() > 9){
 				// TEST - меньше полей которые проходят валидацию
 		//		if(csp.getText().length() < 9){ //5 char min
 				Toast.makeText(getApplicationContext(), R.string.phonevalidation, Toast.LENGTH_LONG).show();
-				Log.d("c_sender_phone_validation_fail", "<9" + ">9");
-				Log.d("c_receiver_phone_validation_fail", "<12" + ">12");// something//Show error
+				Log.d("c_receiver_phone_validation_fail", "<9" + ">9");
+				Log.d("c_sender_phone_validation_fail", "<12" + ">12");// something//Show error
 			}
 			else{
 			    //Do match
@@ -247,6 +246,14 @@ csp.setText(simnumber);
 			
 		Toast.makeText(getApplicationContext(), R.string.please_wait_create_inq, Toast.LENGTH_LONG).show();
 		
+		 // сохраняем значения в SharedPreferences
+		EditText sender_phone = (EditText) findViewById(R.id.editText3);
+		EditText sender_email = (EditText) findViewById(R.id.editText5);
+	    savePreferences("sender_phone", sender_phone.getText().toString());
+	    Log.d("sender_phone_savePreferences", sender_phone.getText().toString());
+	    savePreferences("sender_email", sender_email.getText().toString());
+	    Log.d("sender_email_savePreferences", sender_email.getText().toString());
+	    
 	//    Intent intent = new Intent(CreateActivity.this, MainActivity.class);
 	//    startActivity(intent);
 	//    Toast.makeText(getApplicationContext(), R.string.dont_work, Toast.LENGTH_LONG).show();
@@ -744,5 +751,23 @@ String snowTime = String.valueOf(nowTime);
 			super.onStop(); 
 			}
 		
+		// сохраняем нужные значения в SharedPreferences
+		private void savePreferences(String key, String value) {
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		Editor editor = sharedPreferences.edit();
+		editor.putString(key, value);
+		editor.commit();}
 		
+		// загружаем нужные значения из SharedPreferences
+		private void loadSavedPreferences() {
+	    	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+	    	String sender_phone = sharedPreferences.getString("sender_phone", "");
+	    	EditText senderphonefsp = (EditText)findViewById(R.id.editText3);
+	    	senderphonefsp.setText(sender_phone);
+	    	Log.e("sender_phone from sharedpreferance",sender_phone);
+	    	String sender_email = sharedPreferences.getString("sender_email", "");
+	    	EditText senderemailfsp = (EditText)findViewById(R.id.editText5);
+		    senderemailfsp.setText(sender_email);
+		    Log.e("sender_phone from sharedpreferance",sender_email);
+		    	 }
 } 
