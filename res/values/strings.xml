@@ -90,6 +90,7 @@
     <string name="title_inquiry_history">Inquiry History</string>
     <string name="text_history_button">History</string>
     <string name="receiving_order_status">Please wait. Receiving information about your inquiry.</string>
+    <string name="historyactivityhelp">Information about your inquiries:</string>
     
      <!-- History List -->
     

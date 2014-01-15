@@ -97,6 +97,8 @@ public class CreateActivity extends Activity {
     String field_select_the_rate_km_kg = "";
     String type = "appdelivery";
     String field_avtostatus = "«а€вка отменена магазином";
+    // код страны дл€ телефона получател€
+    String receiver_phone_code = "UA";
     
     // данные дл€ работы с базой данных
 
@@ -249,10 +251,13 @@ csp.setText(simnumber);
 		 // сохран€ем значени€ в SharedPreferences
 		EditText sender_phone = (EditText) findViewById(R.id.editText3);
 		EditText sender_email = (EditText) findViewById(R.id.editText5);
+		EditText sender = (EditText) findViewById(R.id.editText1);
 	    savePreferences("sender_phone", sender_phone.getText().toString());
 	    Log.d("sender_phone_savePreferences", sender_phone.getText().toString());
 	    savePreferences("sender_email", sender_email.getText().toString());
 	    Log.d("sender_email_savePreferences", sender_email.getText().toString());
+	    savePreferences("sender", sender.getText().toString());
+	    Log.d("sender_email_savePreferences", sender.getText().toString());
 	    
 	//    Intent intent = new Intent(CreateActivity.this, MainActivity.class);
 	//    startActivity(intent);
@@ -331,7 +336,7 @@ csp.setText(simnumber);
 	        @Override
 	        protected void onPostExecute(String result) {
 	        	// 4 step NI
-	        	new RequestTaskC().execute("http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key, oauth_consumer_key, XCSRFTokenm, login, password, с_sender, с_sender_adress, с_sender_email, с_sender_phone, с_receiver_adress, с_receiver, с_receiver_phone, с_weight, с_gabarit, с_receiver_email, с_declarate_walue, с_info, field_summary_price_prodzd, field_select_the_rate_km_kg, type);
+	        	new RequestTaskC().execute("http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key, oauth_consumer_key, XCSRFTokenm, login, password, с_sender, с_sender_adress, с_sender_email, с_sender_phone, с_receiver_adress, с_receiver, с_receiver_phone, с_weight, с_gabarit, с_receiver_email, с_declarate_walue, с_info, field_summary_price_prodzd, field_select_the_rate_km_kg, type, receiver_phone_code);
 		        Log.d("+URLCreateinq", "http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key);
 	                super.onPostExecute(result);
 	        }
@@ -506,6 +511,8 @@ csp.setText(simnumber);
                         Log.d("field_select_the_rate_km_kg_params[18]", params[18] + "");
                         nameValuePairs.add(new BasicNameValuePair("type", params[19]));
                         Log.d("type", params[19] + "");
+                        nameValuePairs.add(new BasicNameValuePair("field_phone_pol_zd[und][0][countrycode]", params[20]));
+                        Log.d("receiver_phone_code", params[20] + "");
                         //собераем их вместе и посылаем на сервер
                         postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
                         //получаем ответ от сервера
@@ -769,5 +776,9 @@ String snowTime = String.valueOf(nowTime);
 	    	EditText senderemailfsp = (EditText)findViewById(R.id.editText5);
 		    senderemailfsp.setText(sender_email);
 		    Log.e("sender_phone from sharedpreferance",sender_email);
+		    String sender = sharedPreferences.getString("sender", "");
+	    	EditText senderfsp = (EditText)findViewById(R.id.editText1);
+	    	senderfsp.setText(sender);
+		    Log.e("sender from sharedpreferance",sender);
 		    	 }
 } 

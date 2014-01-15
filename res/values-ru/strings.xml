@@ -84,6 +84,7 @@
     <string name="title_inquiry_history">История заявок</string>
     <string name="text_history_button">История</string>
     <string name="receiving_order_status">Пожалуйста, подождите. Получаем информацию о Вашей заявке.</string>
+    <string name="historyactivityhelp">Информация о Ваших заявках:.</string>
     
      <!-- History List -->
     
