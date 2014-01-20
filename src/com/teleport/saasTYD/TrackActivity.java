@@ -43,6 +43,10 @@ public class TrackActivity extends Activity {
     private static final String systemstatus = "system status";
     private static final String deliverystatus = "delivery status";
     private static final String statustime = "status time";
+ // для распределения не в views а в TextView
+    String ss = "...";
+    String ds = "...";
+    String time = "...";
     public ListView listView;
     MainActivity ma;
     
@@ -54,7 +58,8 @@ public class TrackActivity extends Activity {
 		 // прогрессбар и установка значения ID заявки в поле
 		pb=(ProgressBar)findViewById(R.id.progressBar1);
 	//	pb.setVisibility(View.VISIBLE);
-		pb.setVisibility(View.GONE);
+	//	pb.setVisibility(View.GONE);
+		
 
 		pb.setVisibility(View.VISIBLE);
        	Log.e("pb visibility", "VISIBLE");
@@ -93,7 +98,7 @@ public class TrackActivity extends Activity {
     
 	
     /** @param result */
-    public void JSONURL(String result) {
+	     public void JSONURL(String result) {
 
             try {
                     //создали читателя json объектов и отдали ему строку - result
@@ -125,7 +130,10 @@ public class TrackActivity extends Activity {
             } catch (JSONException e) {
                     Log.e("log_tag", "Error parsing data " + e.toString());
             }
-    }
+    } 
+	
+	
+	
 
 
     public void SETID (String result) {
@@ -173,8 +181,24 @@ public class TrackActivity extends Activity {
 
         @Override
         protected void onPostExecute(String result) {
+        
+          // // для распределения не в views а в TextView
+    //        TextView sso = (TextView) findViewById(R.id.textView8);
+    //        TextView dso = (TextView) findViewById(R.id.textView9);
+    //        TextView timeo = (TextView) findViewById(R.id.textView10);
+    //        sso.setText(ss);
+    //        dso.setText(ds);
+    //        timeo.setText(time);
+        	// показываем поля
+    //    	TextView ss = (TextView) findViewById(R.id.textView8);
+    //		ss.setVisibility(View.VISIBLE);
+    //		TextView ds = (TextView) findViewById(R.id.textView9);
+    //		ds.setVisibility(View.VISIBLE);
+    //		TextView time = (TextView) findViewById(R.id.textView10);
+    //		time.setVisibility(View.VISIBLE);
 //      	pb.setVisibility(View.GONE);
 //      	Log.e("pb visibility", "GONE");
+    		
                 super.onPostExecute(result);
         }
         
@@ -189,6 +213,26 @@ public class TrackActivity extends Activity {
                 super.onPreExecute();
         }
 }
+	// для распределения не в views а в TextView
+	/** public void JSONURL(String result) {
+
+        try {
+                //создали читателя json объектов и отдали ему строку - result
+                JSONObject json = new JSONObject(result);
+
+                ss = (String) json.get("system status");
+            	Log.d("ss", (String) json.get("system status") + "");
+            	ds = (String) json.get("delivery status");
+            	Log.d("ds", (String) json.get("delivery status") + "");
+            	time = (String) json.get("status time");
+            	Log.d("time", (String) json.get("status time") + "");
+                //	String XCSRFToken = (String) json.get("token");
+                //	Log.d("XCSRFToken", (String) json.get("token") + "");
+              
+        } catch (JSONException e) {
+                Log.e("log_tag", "Error parsing data " + e.toString());
+        }
+} */
  	
  	
 }

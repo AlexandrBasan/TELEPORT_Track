@@ -36,6 +36,8 @@ public class MainActivity extends Activity {
     TrackActivity url;
 	public String trackid;
 	public String output;
+//	String ID_from_history_for_track = "no";
+	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,13 @@ public class MainActivity extends Activity {
 
         {          
             {
-         
+            	Intent intent = getIntent();
+            	String ID_from_history_for_track = intent.getStringExtra("ID_from_history_for_track"); // bar
+            	EditText edtrackID = (EditText) findViewById(R.id.editText1);
+            	edtrackID.setText(ID_from_history_for_track);
+            //	ID_from_history_for_track = getIntent().getExtras().getString("ID_from_history_for_track");
+            //	Log.d("ID_from_history_for_track in MainActivity", ID_from_history_for_track);
+
             }
           };
        

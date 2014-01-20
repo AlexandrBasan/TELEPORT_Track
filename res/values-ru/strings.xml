@@ -21,6 +21,7 @@
     <string name="text_track_ID">ID заявки:</string>
     <string name="text_track_button">Отследить</string>
     <string name="text_teleportds">www.teleport-ds.com</string>
+    <string name="inquiryidhint">Пример.: 3334444224444</string>
 
     <!-- Address format -->
     <string name="address_output_string">%1$s %2$s %3$s</string>

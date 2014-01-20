@@ -23,6 +23,7 @@
     <string name="text_track_ID">Inquiry ID:</string>
     <string name="text_track_button">Track</string>
     <string name="text_teleportds">www.teleport-ds.com</string>
+    <string name="inquiryidhint">E.g.: 3334444224444</string>
 
     <!-- Address format -->
     <string name="address_output_string">%1$s %2$s %3$s</string>

@@ -34,6 +34,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,6 +51,7 @@ public class HistoryActivity extends Activity {
 	private static final String Times = "Times";
 	private static final String costs = "costs";
 	private static final String recs = "recs";
+	String iid_from_db = "id";
 
 
     @Override
@@ -134,8 +138,23 @@ public class HistoryActivity extends Activity {
                                @Override
                                public void onItemClick(AdapterView<?> a, View v, int i, long id) {
                             	   // ¬ыводит сообщение на какой элемент мы кликнули
-                       //     	   Toast.makeText(getBaseContext(), id + " inquiry in SQL base", Toast.LENGTH_LONG).show();
-                            	   // do whatever you want
+                             //	   Toast.makeText(getBaseContext(), id + " inquiry in SQL base", Toast.LENGTH_LONG).show();
+                            //	   Toast.makeText(getBaseContext(), i+1 + " inquiry in SQL base", Toast.LENGTH_LONG).show();
+
+                            	   DatabaseHandler db = new DatabaseHandler(getBaseContext());
+                            	   db.getinqID(i+1);
+                            	   Log.d("iid_from_db", db.getinqID(i+1) + "");
+                            	   
+                            	   // сохран€ем значение ID в SharedPreferences
+                            	//    savePreferences("ID", db.getinqID(i+1));
+                            	//    Log.d("savePreferences", db.getinqID(i+1));
+
+                            	   
+                            	   Intent tr=new Intent(getApplicationContext(),MainActivity.class);
+                            	   tr.putExtra("ID_from_history_for_track", db.getinqID(i+1).toString());
+                            	   Log.d("ID_from_history_for_track", db.getinqID(i+1).toString() + "");
+                            	   startActivity(tr); 
+									
                                }
                            });
                 	
@@ -145,7 +164,13 @@ public class HistoryActivity extends Activity {
        
     }
     
-
+    // сохран€ем значение ID в SharedPreferences
+   	private void savePreferences(String key, String value) {
+   	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+   	Editor editor = sharedPreferences.edit();
+   	editor.putString(key, value);
+   	editor.commit();}
+   	
     
     public void onClickTeleportwww(View v){
     	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://teleport-ds.com/"));

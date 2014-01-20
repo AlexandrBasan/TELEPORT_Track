@@ -63,7 +63,8 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_alignLeft="@+id/textView2"
-          android:layout_alignTop="@id/textView1" >
+          android:layout_alignTop="@id/textView1"
+           >
 
       </ListView>
 
@@ -115,9 +116,32 @@
          android:layout_marginTop="15dp"
          android:text="@string/Youcourierpos"
          android:textColor="@color/blue" />
-     
-     
-     
-     
+
+     <TextView
+         android:id="@+id/TextView08"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/TextView01"
+         android:layout_alignLeft="@+id/TextView04"
+         android:text="@string/Status"
+         android:visibility="gone" />
+
+     <TextView
+         android:id="@+id/TextView09"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/TextView05"
+         android:layout_alignLeft="@+id/TextView08"
+         android:text="@string/Status"
+         android:visibility="gone" />
+
+     <TextView
+         android:id="@+id/TextView10"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/TextView07"
+         android:layout_alignLeft="@+id/TextView09"
+         android:text="@string/Status"
+         android:visibility="gone" />
      
 </RelativeLayout>

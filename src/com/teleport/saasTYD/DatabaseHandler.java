@@ -110,6 +110,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return contact
         return contact;
     }
+    
+    // Getting single inquiry ID // work but with bugs - возвращает не корректные значени€ на одну выше
+    String getinqID(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+ 
+        Cursor cursor = db.query(TABLE_Inquiry, new String[] { KEY_ID,
+        		KEY_inquiry_id, KEY_inquiry_time, KEY_inquiry_cost, KEY_sender_adress, KEY_receiver_fio, KEY_receiver_adress, KEY_receiver_phone }, KEY_ID + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+ 
+        String iid = cursor.getString(1);
+        Log.d("iid in db handler", iid + "");
+        // return contact
+        return iid;
+    }
      
     // Getting All Inquiry
     public List<SQLInquiry> getAllContacts() {
