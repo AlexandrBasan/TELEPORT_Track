@@ -1,0 +1,114 @@
+<resources>
+
+    <string name="app_name">Teleport Track</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- Menu -->
+    <string name="menu_about">О нас</string>
+    <string name="menu_logout">Выход</string>
+    <string name="menu_update_page">Перезагрузить страницу</string>
+    <string name="menu_exit">Выход</string>
+
+    <!-- Label -->
+    <string name="loading">Загрузка&#8230;</string>
+    <string name="title_activity_main">Teleport Track</string>
+    <string name="Button_ok">Сохранить</string>
+    <string name="Button_cancel">Закрыть</string>
+    
+    <string name="text_track_your_delivery_1">Вы можете отслеживать текущий статус доставки Вашего заказа. </string>
+    <string name="text_track_your_delivery_attention">Внимание! Отслеживание заявки возможно только если доставка проходит через сервис Teleport Delivery Service.</string>
+    <string name="text_track_your_delivery_past_ID">Введите ID код заявки и нажмите кнопку отследить.</string>
+    <string name="text_track_ID">ID заявки:</string>
+    <string name="text_track_button">Отследить</string>
+    <string name="text_teleportds">www.teleport-ds.com</string>
+    <string name="inquiryidhint">Пример.: 3334444224444</string>
+
+    <!-- Address format -->
+    <string name="address_output_string">%1$s %2$s %3$s</string>
+
+    <!-- Latitude, longitude format -->
+    <string name="latitude_longitude">%1$.8f, %2$.8f</string>
+
+    <!-- Error or Warning Label -->
+ <string name="connection_error">Невозможно загрузить данные. Проверьте соединение с Интернетом.</string>
+ 
+      <!-- Track Activity -->
+    <string name="title_activity_track">Отслеживание заявки</string>
+    <string name="DeliveryStatus">Статус доставки:</string>
+    <string name="AutoStatus">Системный статус:</string>
+    <string name="Status">...загрузка...</string>
+    <string name="Time">Время:</string>
+    <string name="please_wait">Пожалуйста, подождите. Получаем информацию о Вашем заказе.</string>
+    <string name="please_wait_create_inq">Пожалуйста, подождите. Создаем заявку на доставку.</string>
+    <string name="yourorderid">Номер Вашей заявки:</string>
+    <string name="orderid">...ID заявки...</string>
+    <string name="enterid">Пожалуйста, введите ID заявки</string>
+    <string name="Youcourierpos">Ваш курьер сейчас здесь:</string>
+    
+      <!-- Create Activity -->
+    <string name="title_activity_create">Создать</string>
+    <string name="с_sender">Ф.И.О. отправителя*</string>
+    <string name="с_sender_adress">Адрес отправителя*</string>
+    <string name="с_sender_phone">Телефон отправителя*</string>
+    <string name="с_weight">Вес посылки*</string>
+    <string name="с_razmer">Габарит посылки</string>
+    <string name="с_receiver_adress">Адрес получателя*</string>
+    <string name="с_receiver">Ф.И.О. получателя*</string>
+    <string name="с_receiver_phone">Телефон получателя*</string>
+    <string name="с_receiver_email">E-mail получателя</string>
+    <string name="с_sender_email">E-mail отправителя*</string>
+    <string name="с_declarate_walue">Задекларированная стоимость груза</string>
+    <string name="с_info">Дополнительная информация</string>
+    <string name="с_tarif">Тариф доставки</string>
+    <string name="dont_work">На данный момент эта функция не работает. Приносим свои извинения за временные неудобства.</string>
+    <string name="enterfields">Пожалуйста, заполните обязательные поля</string>
+    <string name="inquiryok">Подтвердить</string>
+    <string name="inquirycancel">Отменить</string>
+    <string name="cinquiryid">ID заявки</string>
+    <string name="cinquirycost">Стоимость доставки</string>
+    <string name="senderemailvalidation">E-mail отправителя указан неверно. Заявка не может быть создана.</string>
+    <string name="phonevalidation">Телефон отправителя или получателя указан неверно.</string>
+    <string name="inquiryoktoast">Ваша заявка подтверждена</string>
+    <string name="inquirycanceltoast">Ваша заявка отменена</string>
+    <string name="toastproblems">Заявка не создана</string>
+        <!-- Create Activity HINT-->
+    <string name="phone_hint_sender_phone">Пример: 380971112233</string>
+    <string name="phone_hint_receiver_phone">Пример: 971112233</string>
+    <string name="FIO_hint">Пример: Иванов Иван</string>
+    <string name="Adress_hint">Пример: 10 Ивана Кудряшова</string>
+    <string name="mail_hint">Пример: ivan@gmail.com</string>
+    <string name="veight_hint">Пример: 1.2</string>
+    <string name="declarate_hint">Пример: 100</string>
+    <string name="info_hint">Пример: Доставить до 10</string>
+    <string name="str_atv_places">Enter Place Here</string>
+    
+    <!-- History Activity -->
+    <string name="title_inquiry_history">История заявок</string>
+    <string name="text_history_button">История</string>
+    <string name="receiving_order_status">Пожалуйста, подождите. Получаем информацию о Вашей заявке.</string>
+    <string name="historyactivityhelp">Информация о Ваших заявках:.</string>
+    
+     <!-- History List -->
+    
+    <string name="inquiryidfs">ID заявки:</string>
+	<string name="inquirytimefs">Время заявки:</string>
+	<string name="inquirycostfs">Стоимость:</string>
+	<string name="receiverfiofs">Получатель:</string>
+    
+     <string-array name="gabarit">
+    <item>Маленький L30 * W25 * H10 (Вес до 3 кг)</item>
+    <item>Маленький L35 * W25 * H25 (Вес до 6 кг)</item>
+    <item>Средний L100 * W100 * H7  (Вес до 30 кг)</item>
+    <item>Большой L133 * W133 * H133  (Вес до 30 кг)</item>
+	</string-array>
+	
+     <string-array name="deliverytarif">
+    <item>Экспресс доставка (Тариф по километражу)</item>
+    <item>Обычная доставка (Тариф по килограммам)</item>
+	</string-array>
+	
+    <!-- Start Activity -->
+    <string name="title_activity_start">Teleport Track</string>
+    <string name="text_create_button">Создать</string>
+    <string name="text_start_info">Вы можете создать заявку на доставку, отследить статус доставки посылки или просмотреть историю заявок.</string>
+</resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="6dip" >
+ 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/inquiryidfs"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue" />
+ 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:text="@string/inquirytimefs"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue"
+        android:visibility="gone"
+         />
+ 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:text="@string/inquirycostfs"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue" />
+ 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:text="@string/receiverfiofs"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue" />
+
+     <TextView
+         android:id="@+id/inquirytimes"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView2"
+         android:layout_alignBottom="@+id/textView2"
+         android:layout_alignLeft="@+id/inquiryids"
+         android:layout_alignParentRight="true"
+         android:text="TextView"
+         android:visibility="gone"
+          />
+
+     <TextView
+         android:id="@+id/receiverfios"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView4"
+         android:layout_alignBottom="@+id/textView4"
+         android:layout_alignLeft="@+id/inquirycosts"
+         android:layout_alignParentRight="true"
+         android:text="TextView" />
+
+     <TextView
+         android:id="@+id/inquirycosts"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView3"
+         android:layout_alignBottom="@+id/textView3"
+         android:layout_alignLeft="@+id/inquiryids"
+         android:text="TextView" />
+
+     <TextView
+         android:id="@+id/inquiryids"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView1"
+         android:layout_alignBottom="@+id/textView1"
+         android:layout_centerHorizontal="true"
+         android:text="TextView" />
+ 
+</RelativeLayout>

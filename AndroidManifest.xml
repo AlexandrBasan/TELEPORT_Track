@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.teleport.saasTYD"
+    android:versionCode="10"
+    android:versionName="1.64" >
+<!-- Goolge Maps API Key -->
+<meta-data
+     android:name="com.google.android.maps.v2.API_KEY"
+     android:value="AIzaSyCpZLXdmiwZa9cEISgBAufNRVpoTm5hj54" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.vogella.android.locationapi.maps.permission.MAPS_RECEIVE" />
+    <permission
+        android:name="com.vogella.android.locationapi.maps.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:configChanges="orientation"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+         >
+        <uses-library android:name="com.google.android.maps"/>
+        <activity
+            android:name="com.teleport.saasTYD.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name="com.teleport.saasTYD.TrackActivity"
+            android:label="@string/title_activity_track" >
+        </activity>
+        <activity
+            android:name="com.teleport.saasTYD.CreateActivity"
+            android:label="@string/title_activity_create" >
+        </activity>
+         <activity
+            android:name="com.teleport.saasTYD.HistoryActivity"
+            android:label="@string/title_inquiry_history" >
+        </activity>
+         <activity
+            android:name="com.teleport.saasTYD.StartActivity"
+            android:label="@string/title_activity_start" >
+            
+              <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
