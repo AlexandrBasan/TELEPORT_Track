@@ -99,18 +99,26 @@ public class CreateActivity extends Activity {
     String sessidm = "sessid";
     String session_namem = "session_name";
     // значения полей
-    String с_sender = "";
-    String с_sender_adress = "";
-    static String с_sender_email = "";
-    String с_sender_phone = "";
-    String с_receiver = "";
-    String с_receiver_adress = "";
-    String с_receiver_phone = "";
-    String с_weight = "";
-    String с_gabarit = "";
-    String с_receiver_email = "";
-    String с_declarate_walue = "";
-    String с_info = "";
+    String store_id = "";
+    String delivery_company_id = "";
+    String delivery_cost = "";
+    
+    String sender_name = "";
+    String sender_address = "";
+    static String sender_email = "";
+    String sender_countrycode = "";
+    String sender_phone = "";
+    String receiver_name = "";
+    String delivery_address = "";
+    String receiver_countrycode = "";
+    String receiver_phone = "";
+    String total_delivery_weight = "";
+    String dimension_height = "";
+    String dimension_width = "";
+    String dimension_length = "";
+    String receiver_email = "";
+    String declared_value = "";
+    String about_delivery_information = "";
     String field_summary_price_prodzd = "0";
     String field_select_the_rate_km_kg = "";
     String type = "appdelivery";
@@ -129,15 +137,8 @@ public class CreateActivity extends Activity {
         super.onCreate(savedInstanceState);
     //    this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.activity_create);
-
         {          
             {
-//////////////////////// определяем номер телефона абонента (можно использовать для передачи телефона курьера в саас)
-TelephonyManager t = (TelephonyManager)getSystemService(TELEPHONY_SERVICE); 
-String simnumber = t.getLine1Number();
-Log.d("SIM PHONE", simnumber + "");
-EditText csp = (EditText) findViewById(R.id.editText3);
-csp.setText(simnumber);
 
 // загружаем данные SavedPreferences в поля телефон и e-mail отправителя
  loadSavedPreferences();
@@ -190,10 +191,8 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
 	});	
 	/*******************************************Google autocomplite block******/
 
-
             }
           };
-       
     }
 
     public void onClickTeleportwww(View v){
@@ -216,7 +215,6 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
  			break;
  		}
  	
-
 // 		case R.id.menu_exit: {
 // 			onDestroy();  
 // 			break;
@@ -253,47 +251,45 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
         Button ok = (Button) findViewById(R.id.button2);
         ok.setVisibility(View.GONE);
         
-		
 		EditText cs = (EditText) findViewById(R.id.editText1);
-		с_sender = cs.getText().toString();  
-	    Log.d("с_sender", с_sender);
+		sender_name = cs.getText().toString();  
+	    Log.d("sender_name", sender_name);
 		
 	//	EditText csa = (EditText) findViewById(R.id.editText2);
 	    EditText csa = (AutoCompleteTextView) findViewById(R.id.atv_places);
-		с_sender_adress = csa.getText().toString();
-		Log.d("с_sender_adress", с_sender_adress);
+		sender_address = csa.getText().toString();
+		Log.d("sender_address", sender_address);
 		
 		EditText cse = (EditText) findViewById(R.id.editText5);
-		с_sender_email = cse.getText().toString();
-		Log.d("с_sender_email", с_sender_email);
+		sender_email = cse.getText().toString();
+		Log.d("sender_email", sender_email);
 		// проверяем корректность sender e-mail 
-		isEmailValid(с_sender_email);
+		isEmailValid(sender_email);
 		
-			
 		EditText csp = (EditText) findViewById(R.id.editText3);
-		с_sender_phone = csp.getText().toString();
-		Log.d("с_sender_phone", с_sender_phone);
+		sender_phone = csp.getText().toString();
+		Log.d("sender_phone", sender_phone);
 		
 //		EditText cra = (EditText) findViewById(R.id.editText7);
 		EditText cra = (AutoCompleteTextView) findViewById(R.id.atv_places2);
-		с_receiver_adress = cra.getText().toString();
-		Log.d("с_receiver_adress", с_receiver_adress);
+		delivery_address = cra.getText().toString();
+		Log.d("delivery_address", delivery_address);
 		
 		EditText cre = (EditText) findViewById(R.id.editText6);
-		с_receiver = cre.getText().toString();
-		Log.d("с_receiver", с_receiver);
+		receiver_name = cre.getText().toString();
+		Log.d("receiver_name", receiver_name);
 		
 		EditText crp = (EditText) findViewById(R.id.editText8);
-		с_receiver_phone = crp.getText().toString();
-	    Log.d("с_receiver_phone", с_receiver_phone);
+		receiver_phone = crp.getText().toString();
+	    Log.d("receiver_phone", receiver_phone);
 	    
 	    EditText cw = (EditText) findViewById(R.id.editText4);
-	    с_weight = cw.getText().toString();
-	    Log.d("с_weight", с_weight);
+	    total_delivery_weight = cw.getText().toString();
+	    Log.d("total_delivery_weight", total_delivery_weight);
 	    
 	    // усли email отправителя корректный проверяем все остальное
-	    if(isEmailValid(с_sender_email)) {
-			Log.d("с_sender_email_true", с_sender_email);// something
+	    if(isEmailValid(sender_email)) {
+			Log.d("sender_email_true", sender_email);// something
 			// проверяем длину номеров телефонов
 			if(csp.getText().length() < 12 || csp.getText().length() > 12 || crp.getText().length() < 9 || crp.getText().length() > 9){
 				// TEST - меньше полей которые проходят валидацию
@@ -306,7 +302,7 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
 			    //Do match
 			
 		
-		if(с_sender.matches("") || с_sender_adress.matches("") || с_sender_phone.matches("") || с_receiver_adress.matches("") || с_receiver.matches("") || с_receiver_phone.matches("") || с_sender_email.matches("")  || с_weight.matches("")){
+		if(sender_name.matches("") || sender_address.matches("") || sender_phone.matches("") || delivery_address.matches("") || receiver_name.matches("") || receiver_phone.matches("") || sender_email.matches("")  || total_delivery_weight.matches("")){
 
              // out of range
              Toast.makeText(this, R.string.enterfields, Toast.LENGTH_LONG).show();
@@ -325,196 +321,32 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
 	    savePreferences("sender", sender.getText().toString());
 	    Log.d("sender_email_savePreferences", sender.getText().toString());
 	    
-	//    Intent intent = new Intent(CreateActivity.this, MainActivity.class);
-	//    startActivity(intent);
-	//    Toast.makeText(getApplicationContext(), R.string.dont_work, Toast.LENGTH_LONG).show();
-	    
-	    
-	    Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
-	    с_gabarit = mySpinner.getSelectedItem().toString();  
-	    Log.d("с_gabarit", с_gabarit);
+	    Log.d("dimension_height", dimension_height);
 	    Spinner tarifSpinner = (Spinner) findViewById(R.id.spinner2);
 	    field_select_the_rate_km_kg = tarifSpinner.getSelectedItem().toString();  
 	    Log.d("field_select_the_rate_km_kg", field_select_the_rate_km_kg);
 	    EditText crem = (EditText) findViewById(R.id.editText9);
-	    с_receiver_email = crem.getText().toString();
-	    Log.d("с_receiver_email", с_receiver_email);
+	    receiver_email = crem.getText().toString();
+	    Log.d("receiver_email", receiver_email);
 	    EditText cdv = (EditText) findViewById(R.id.editText10);
-	    с_declarate_walue = cdv.getText().toString();
-	    Log.d("с_declarate_walue", с_declarate_walue);
+	    declared_value = cdv.getText().toString();
+	    Log.d("declared_value", declared_value);
 	    EditText ci = (EditText) findViewById(R.id.editText11);
-	    с_info = ci.getText().toString();
-	    Log.d("с_info", с_info);
-// 1 step Login
-	    new RequestTaskLogin().execute("http://saas.teleport-ds.com/document/1.0/user/login.json?oauth_consumer_key=" + oauth_consumer_key, oauth_consumer_key, XCSRFTokenm, login, password);
-    	Log.d("+URLLogin", "http://saas.teleport-ds.com/document/1.0/user/login.json?oauth_consumer_key=" + oauth_consumer_key);
-
+	    about_delivery_information = ci.getText().toString();
+	    Log.d("about_delivery_information", about_delivery_information);
+// step 4
+    	new RequestTaskC().execute("http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key);
+        Log.d("+URLCreateinq", "http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key);
 
 
 		} }
 		
 	    } else {
-			Log.d("с_sender_email_false", с_sender_email);//something else
+			Log.d("sender_email_false", sender_email);//something else
 			Toast.makeText(getApplicationContext(), R.string.senderemailvalidation, Toast.LENGTH_LONG).show();
 		}
 		
 	}
-	    
-/////////////////////////////////////////////////// 2 step //////////////////////////////////////////////////////////
-	// обработка отправки данных
-		class RequestTaskXCSRFToken extends AsyncTask<String, String, String> {
-
-	        @Override
-	        protected String doInBackground(String... params) {
-
-	                try {
-	                        //создаем запрос на сервер
-	                        DefaultHttpClient hc = new DefaultHttpClient();
-	                        ResponseHandler<String> res = new BasicResponseHandler();
-	                        //он у нас будет посылать post запрос
-	                        HttpPost postMethod = new HttpPost(params[0]);
-	                        postMethod.addHeader("Cookie ", session_namem + "=" + sessidm );
-	                        Log.d("setHeader session", "Cookie :"+ session_namem + "=" + sessidm + "");
-	                        //будем передавать 14 параметров
-	                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
-	                        //передаем параметры из наших текстбоксов в систему
-	                   //     nameValuePairs.add(new BasicNameValuePair("oauth_consumer_key", params[1]));
-	                   //     Log.d("oauth_consumer_key", params[1] + "");
-	                      //собераем их вместе и посылаем на сервер
-	                        postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-	                        //получаем ответ от сервера
-	                        String responsetoken = hc.execute(postMethod, res);
-	                        Log.d("responsetoken", responsetoken + "");
-	                        
-	                        // обработываем значения которые вернулись
-	                    	CreateInq = new ArrayList<HashMap<String, Object>>();
-	                    	//передаем в метод парсинга
-	                    	JSONURLtoken(responsetoken);
-
-	                        
-	                } catch (Exception e) {
-	                        System.out.println("Exp=" + e);
-	                        
-	                }
-	                return null;
-	        }
-
-	        @Override
-	        protected void onPostExecute(String result) {
-	        	// 4 step NI
-	        	new RequestTaskC().execute("http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key, oauth_consumer_key, XCSRFTokenm, login, password, с_sender, с_sender_adress, с_sender_email, с_sender_phone, с_receiver_adress, с_receiver, с_receiver_phone, с_weight, с_gabarit, с_receiver_email, с_declarate_walue, с_info, field_summary_price_prodzd, field_select_the_rate_km_kg, type, receiver_phone_code);
-		        Log.d("+URLCreateinq", "http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key);
-	                super.onPostExecute(result);
-	        }
-	        
-	        protected void onProgressUpdate(Integer... progress){  }
-				
-
-	        @Override
-	        protected void onPreExecute() {
-	                super.onPreExecute();
-	        }
-	}
-		 /** 1 step @param result */
-		public void JSONURLtoken(String result) {
-
-	        try {
-	                //создали читателя json объектов и отдали ему строку - result
-	                JSONObject json = new JSONObject(result);
-
-	                	XCSRFTokenm = (String) json.get("token");
-	                	Log.d("XCSRFTokenm", (String) json.get("token") + "");
-	                	
-	              
-	        } catch (JSONException e) {
-	                Log.e("log_tag", "Error parsing data " + e.toString());
-	        }
-	}
-/////////////////////////////////////////////////// 2 step //////////////////////////////////////////////////////////	
-/////////////////////////////////////////////////// 1 step //////////////////////////////////////////////////////////
-		// обработка отправки данных
-				class RequestTaskLogin extends AsyncTask<String, String, String> {
-
-			        @Override
-			        protected String doInBackground(String... params) {
-
-			                try {
-			                        //создаем запрос на сервер
-			                        DefaultHttpClient hc = new DefaultHttpClient();
-			                        ResponseHandler<String> res = new BasicResponseHandler();
-			                        //он у нас будет посылать post запрос
-			                        HttpPost postMethod = new HttpPost(params[0]);
-			                   //     postMethod.setHeader("X-CSRF-Token ", XCSRFTokenm);
-			                   //     Log.d("setHeader X-CSRF-Token login", "X-CSRF-Token:"+ XCSRFTokenm + "");
-			                        //будем передавать 14 параметров
-			                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
-			                        //передаем параметры из наших текстбоксов в систему
-			                   //     nameValuePairs.add(new BasicNameValuePair("oauth_consumer_key", params[1]));
-			                   //     Log.d("oauth_consumer_key", params[1] + "");
-			                   //     nameValuePairs.add(new BasicNameValuePair("X-CSRF-Token", params[2]));
-			                   //     Log.d("X-CSRF-Token login", params[2] + "");
-			                        nameValuePairs.add(new BasicNameValuePair("username", params[3]));
-			                        Log.d("username login", params[3] + "");
-			                        nameValuePairs.add(new BasicNameValuePair("password", params[4]));
-			                        Log.d("password login", params[4] + "");
-			                      //собераем их вместе и посылаем на сервер
-			                        postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-			                        //получаем ответ от сервера
-			                        String responselogin = hc.execute(postMethod, res);
-			                        Log.d("responselogin", responselogin + "");
-			                        
-			                        // обработываем значения которые вернулись
-			                    //	CreateInq = new ArrayList<HashMap<String, Object>>();
-			                    	//передаем в метод парсинга
-			                    	JSONURLLogin(responselogin);
-
-			                        
-			                } catch (Exception e) {
-			                        System.out.println("Exp=" + e);
-			                        
-			                }
-			                return null;
-			        }
-
-			        @Override
-			        protected void onPostExecute(String result) {
-			        	// 2 step Token
-			        	new RequestTaskXCSRFToken().execute("http://saas.teleport-ds.com/document/1.0/user/token.json?oauth_consumer_key=" + oauth_consumer_key, oauth_consumer_key);
-			        	Log.d("+URLtoken", "http://saas.teleport-ds.com/document/1.0/user/token.json?oauth_consumer_key=" + oauth_consumer_key);
-			        	
-			          
-			                super.onPostExecute(result);
-			        }
-			        
-			        protected void onProgressUpdate(Integer... progress){  }
-						
-
-			        @Override
-			        protected void onPreExecute() {
-			                super.onPreExecute();
-			        }
-			}
-				 /** 2 step @param result */
-				public void JSONURLLogin(String result) {
-
-			        try {
-			                //создали читателя json объектов и отдали ему строку - result
-			                JSONObject json = new JSONObject(result);
-
-			                sessidm = (String) json.get("sessid");
-		                	Log.d("sessidm", (String) json.get("sessid") + "");
-		                	session_namem = (String) json.get("session_name");
-		                	Log.d("session_namem", (String) json.get("session_name") + "");
-			                //	String XCSRFToken = (String) json.get("token");
-			                //	Log.d("XCSRFToken", (String) json.get("token") + "");
-			              
-			        } catch (JSONException e) {
-			                Log.e("log_tag", "Error parsing data " + e.toString());
-			        }
-			}
-		
-		
-/////////////////////////////////////////////////// 1 step //////////////////////////////////////////////////////////
 /////////////////////////////////////////////////// 4 step //////////////////////////////////////////////////////////	
 	// обработка отправки данных
 	class RequestTaskC extends AsyncTask<String, String, String> {
@@ -548,29 +380,29 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
                 //        nameValuePairs.add(new BasicNameValuePair("password", params[4]));
                 //        Log.d("password_params[4]", params[4] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_sender[und][0][value]", params[5]));
-                        Log.d("с_sender_params[5]", params[5] + "");
+                        Log.d("sender_name_params[5]", params[5] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_sender_adress[und][0][value]", params[6]));
-                        Log.d("с_sender_adress_params[6]", params[6] + "");
+                        Log.d("sender_address_params[6]", params[6] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_sender_email[und][0][value]", params[7]));
-                        Log.d("с_sender_email_params[7]", params[7] + "");
+                        Log.d("sender_email_params[7]", params[7] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_sender_phone[und][0][value]", params[8]));
-                        Log.d("с_sender_phone_params[8]", params[8] + "");
+                        Log.d("sender_phone_params[8]", params[8] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_address_dos_zd[und][0][value]", params[9]));
-                        Log.d("с_receiver_adress_params[9]", params[9] + "");
+                        Log.d("delivery_address_params[9]", params[9] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_fio_pol_pos_zd[und][0][value]", params[10]));
-                        Log.d("с_receiver_params[10]", params[10] + "");
+                        Log.d("receiver_name_params[10]", params[10] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_phone_pol_zd[und][0][number]", params[11]));
-                        Log.d("с_receiver_phone_params[11]", params[11] + "");
+                        Log.d("receiver_phone_params[11]", params[11] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_total_weight_zd[und][0][value]", params[12]));
-                        Log.d("с_weight_params[12]", params[12] + "");
+                        Log.d("total_delivery_weight_params[12]", params[12] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_clear_parcels_zd[und][0][value]", params[13]));
-                        Log.d("с_gabarit_params[13]", params[13] + "");
+                        Log.d("dimension_height_params[13]", params[13] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_e_mail_client[und][0][value]", params[14]));
-                        Log.d("с_receiver_email_params[14]", params[14] + "");
+                        Log.d("receiver_email_params[14]", params[14] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_declared_value[und][0][value]", params[15]));
-                        Log.d("с_declarate_walue_params[15]", params[15] + "");
+                        Log.d("declared_value_params[15]", params[15] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_prim_shop[und][0][value]", params[16]));
-                        Log.d("с_info_params[16]", params[16] + "");
+                        Log.d("about_delivery_information_params[16]", params[16] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_summary_price_prodzd[und][0][value]", params[17]));
                         Log.d("field_summary_price_prodzd_params[17]", params[17] + "");
                         nameValuePairs.add(new BasicNameValuePair("field_select_the_rate_km_kg[und][0][value]", params[18]));
@@ -584,8 +416,7 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
                         //получаем ответ от сервера
                         String responseni = hc.execute(postMethod, res);
                         Log.d("HTTP response", responseni + "");
-                                               
-                       
+                                              
                         // обработываем значения которые вернулись
                     //	CreateInq = new ArrayList<HashMap<String, Object>>();
                     	//передаем в метод парсинга
@@ -601,7 +432,6 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
         @Override
         protected void onPostExecute(String result) {
 	
-        	
         	//ставим значение полей стоимость доставки и ID заявки
             TextView cost = (TextView) findViewById(R.id.textView13);
             TextView id = (TextView) findViewById(R.id.textView15);
@@ -625,7 +455,6 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
         
         protected void onProgressUpdate(Integer... progress){  }
 			
-
         @Override
         protected void onPreExecute() {
  //       	url.pb.setVisibility(View.VISIBLE);
@@ -653,7 +482,6 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
             	viewinquiry = String.valueOf(json.get("view_uri"));
             	Log.d("viewinquiry", (String) json.get("view_uri") + "");
             	
-            	
             	created = String.valueOf(json.get("created"));
             	Log.d("created", (String) json.get("created") + "");
 //            	SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -662,8 +490,6 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
 //        		sdfd = formatter.format(created);
 //        		Log.d("sdfd", formatter.format(created) + "");
 
-
-            	
         } catch (JSONException e) {
                 Log.e("log_tag", "Error parsing data " + e.toString());
         }
@@ -737,7 +563,7 @@ super.onPreExecute();
 	    String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
 	    CharSequence inputStr = email;
 	    
-	    Log.d("email", с_sender_email + "");
+	    Log.d("email", sender_email + "");
 	    Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
 	    Matcher matcher = pattern.matcher(inputStr);
 	    if (matcher.matches()) {
@@ -777,17 +603,16 @@ String snowTime = String.valueOf(nowTime);
 // Inserting Contacts
      Log.d("Insert to SQL: ", "Inserting .."); 
 // работает нормально, чтобы не захламлять базу отключено
-     db.addContact(new SQLInquiry(inquiryidforuser, created, deliverycost, с_sender_adress, с_receiver, с_receiver_adress, с_receiver_phone));
+     db.addContact(new SQLInquiry(inquiryidforuser, created, deliverycost, sender_address, receiver_name, delivery_address, receiver_phone));
     
      Log.d("inquiryidforuser to SQL: ", inquiryidforuser); 
      Log.d("created to SQL: ", created);
      Log.d("deliverycost to SQL: ", deliverycost); 
-     Log.d("с_sender_adress to SQL: ", с_sender_adress); 
-     Log.d("с_receiver to SQL: ", с_receiver); 
-     Log.d("с_receiver_adress to SQL: ", с_receiver_adress); 
-     Log.d("с_receiver_phone to SQL: ", с_receiver_phone); 
+     Log.d("sender_address to SQL: ", sender_address); 
+     Log.d("receiver_name to SQL: ", receiver_name); 
+     Log.d("delivery_address to SQL: ", delivery_address); 
+     Log.d("receiver_phone to SQL: ", receiver_phone); 
      
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 			}
 			
@@ -908,8 +733,7 @@ String snowTime = String.valueOf(nowTime);
 				} catch (UnsupportedEncodingException e1) {
 					e1.printStackTrace();
 				}		
-				
-				
+
 				// place type to be searched
 				String types = "types=geocode";
 				
@@ -947,7 +771,6 @@ String snowTime = String.valueOf(nowTime);
 				parserTask.execute(result);
 			}		
 		}
-		
 		
 		/** A class to parse the Google Places in JSON format */
 	    private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String,String>>>{
@@ -999,8 +822,5 @@ String snowTime = String.valueOf(nowTime);
 	    /*******************************************Google autocomplite block FILTERING******/
 	    
 	    /*******************************************Google autocomplite block FILTERING******/
-	    
-	    
+	       
 } 
-
-

@@ -8,6 +8,7 @@
         android:layout_height="fill_parent"
         android:stretchColumns="1"
         >
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -135,11 +136,47 @@
         android:textAppearance="?android:attr/textAppearanceMedium" 
         android:textColor="@color/blue"/>
 
-    <Spinner
-        android:id="@+id/spinner1"
+    <TextView
+        android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/gabarit" />
+        android:text="@string/dimension_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue" />
+
+    <EditText
+        android:id="@+id/EditText01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dimension_width"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue" />
+
+    <EditText
+        android:id="@+id/EditText02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dimension_length"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/blue" />
+
+    <EditText
+        android:id="@+id/EditText03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" />
 
     <TextView
         android:id="@+id/textView6"

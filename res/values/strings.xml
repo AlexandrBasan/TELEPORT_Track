@@ -57,6 +57,9 @@
     <string name="с_sender_phone">Sender phone*</string>
     <string name="с_weight">Parcel weight*</string>
     <string name="с_razmer">Parcel dimensions</string>
+    <string name="dimension_height">dimension_height</string>
+    <string name="dimension_width">dimension_width</string>
+    <string name="dimension_length">dimension_length</string>
     <string name="с_receiver_adress">Receiver address*</string>
     <string name="с_receiver">Receiver*</string>
     <string name="с_receiver_phone">Receiver phone*</string>

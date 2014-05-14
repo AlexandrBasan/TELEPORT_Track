@@ -52,6 +52,9 @@
     <string name="с_sender_phone">Телефон отправителя*</string>
     <string name="с_weight">Вес посылки*</string>
     <string name="с_razmer">Габарит посылки</string>
+    <string name="dimension_height">dimension_height</string>
+    <string name="dimension_width">dimension_width</string>
+    <string name="dimension_length">dimension_length</string>
     <string name="с_receiver_adress">Адрес получателя*</string>
     <string name="с_receiver">Ф.И.О. получателя*</string>
     <string name="с_receiver_phone">Телефон получателя*</string>
