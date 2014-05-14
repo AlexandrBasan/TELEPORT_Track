@@ -57,9 +57,9 @@
     <string name="с_sender_phone">Sender phone*</string>
     <string name="с_weight">Parcel weight*</string>
     <string name="с_razmer">Parcel dimensions</string>
-    <string name="dimension_height">dimension_height</string>
-    <string name="dimension_width">dimension_width</string>
-    <string name="dimension_length">dimension_length</string>
+    <string name="dimension_height">Dimension height*</string>
+    <string name="dimension_width">Dimension width*</string>
+    <string name="dimension_length">Dimension length*</string>
     <string name="с_receiver_adress">Receiver address*</string>
     <string name="с_receiver">Receiver*</string>
     <string name="с_receiver_phone">Receiver phone*</string>
@@ -108,14 +108,6 @@
     <!-- SQL Database-->
     <string name="sqlinquiryid"> ,Inquiry ID: </string>
     <string name="sqlinquirytime"> ,Inquiry Time: </string>
-    
-    
-    <string-array name="gabarit">
-    <item>Маленький L30 * W25 * H10 (Вес до 3 кг)</item>
-    <item>Маленький L35 * W25 * H25 (Вес до 6 кг)</item>
-    <item>Средний L100 * W100 * H7  (Вес до 30 кг)</item>
-    <item>Большой L133 * W133 * H133  (Вес до 30 кг)</item>
-	</string-array>
 	
      <string-array name="deliverytarif">
     <item>Экспресс доставка (Тариф по километражу)</item>

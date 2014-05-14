@@ -275,6 +275,16 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
 		delivery_address = cra.getText().toString();
 		Log.d("delivery_address", delivery_address);
 		
+		EditText dimh = (EditText) findViewById(R.id.EditText01);
+		dimension_height = dimh.getText().toString();
+	    Log.d("dimension_height", dimension_height);
+	    EditText dimw = (EditText) findViewById(R.id.EditText02);
+	    dimension_width = dimw.getText().toString();
+	    Log.d("dimension_width", dimension_width);
+	    EditText diml = (EditText) findViewById(R.id.EditText03);
+	    dimension_length = diml.getText().toString();
+	    Log.d("dimension_length", dimension_length);
+		
 		EditText cre = (EditText) findViewById(R.id.editText6);
 		receiver_name = cre.getText().toString();
 		Log.d("receiver_name", receiver_name);
@@ -291,18 +301,18 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
 	    if(isEmailValid(sender_email)) {
 			Log.d("sender_email_true", sender_email);// something
 			// проверяем длину номеров телефонов
-			if(csp.getText().length() < 12 || csp.getText().length() > 12 || crp.getText().length() < 9 || crp.getText().length() > 9){
+			if(csp.getText().length() < 10 || csp.getText().length() > 10 || crp.getText().length() < 10 || crp.getText().length() > 10){
 				// TEST - меньше полей которые проходят валидацию
 		//		if(csp.getText().length() < 9){ //5 char min
 				Toast.makeText(getApplicationContext(), R.string.phonevalidation, Toast.LENGTH_LONG).show();
-				Log.d("c_receiver_phone_validation_fail", "<9" + ">9");
-				Log.d("c_sender_phone_validation_fail", "<12" + ">12");// something//Show error
+				Log.d("c_receiver_phone_validation_fail", "<10" + ">10");
+				Log.d("c_sender_phone_validation_fail", "<10" + ">10");// something//Show error
 			}
 			else{
 			    //Do match
 			
 		
-		if(sender_name.matches("") || sender_address.matches("") || sender_phone.matches("") || delivery_address.matches("") || receiver_name.matches("") || receiver_phone.matches("") || sender_email.matches("")  || total_delivery_weight.matches("")){
+		if(sender_name.matches("") || sender_address.matches("") || sender_phone.matches("") || delivery_address.matches("") || receiver_name.matches("") || receiver_phone.matches("") || sender_email.matches("")  || total_delivery_weight.matches("")  || dimension_height.matches("") || dimension_width.matches("") || dimension_length.matches("")){
 
              // out of range
              Toast.makeText(this, R.string.enterfields, Toast.LENGTH_LONG).show();
@@ -337,7 +347,6 @@ atvPlaces2.addTextChangedListener(new TextWatcher() {
 // step 4
     	new RequestTaskC().execute("http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key);
         Log.d("+URLCreateinq", "http://saas.teleport-ds.com/document/1.0/ni?oauth_consumer_key=" + oauth_consumer_key);
-
 
 		} }
 		

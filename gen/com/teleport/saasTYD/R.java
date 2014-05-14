@@ -9,8 +9,7 @@ package com.teleport.saasTYD;
 
 public final class R {
     public static final class array {
-        public static final int deliverytarif=0x7f090001;
-        public static final int gabarit=0x7f090000;
+        public static final int deliverytarif=0x7f090000;
     }
     public static final class attr {
         /** 
